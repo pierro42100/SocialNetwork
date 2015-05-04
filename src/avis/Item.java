@@ -17,7 +17,7 @@ public abstract class Item {
 	 * @uml.property name="reviews"
 	 * @uml.associationEnd multiplicity="(0 -1)" ordering="true" inverse="item:avis.Review"
 	 */
-	private LinkedList<Review> reviews;
+	protected LinkedList<Review> reviews;
 
 	/**
 	 * Méthode qui ajoute un nouveau commentaire <i>Review</i> à un <i>Item</i>

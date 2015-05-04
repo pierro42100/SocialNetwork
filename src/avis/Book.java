@@ -30,7 +30,16 @@ public class Book extends Item {
 	 */
 	@Override
 	public String toString(){
+		String phrase;
+		phrase = title + " est un livre écrit par " + author + ". Le type du livre est : "+ type +". Il contient "+ pageNumber + " pages ";
+		phrase += "Commentaires du livre :\n";
 		
-		return "";	
+		//On parcours tous les reviews du livre
+		for(Review r : reviews)
+		{
+			phrase+= r.toString();
+		}
+		
+		return phrase;	
 	}
 }

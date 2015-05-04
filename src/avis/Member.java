@@ -62,7 +62,10 @@ public class Member {
 	 * @return la chaîne de caractères représentation textuelle du <i>Member</i> 
 	 */
 	public String toString(){
-		return "";	
+		String phrase;
+		phrase = "Le pseudo du membre est : "+pseudo+". Son password est :"+"password ici ?"+". Profil :"+profil;
+		return phrase;
+		
 	}
 
 

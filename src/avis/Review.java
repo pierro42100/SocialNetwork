@@ -44,7 +44,11 @@ public class Review {
 	 * @return la chaîne de caractères représentation textuelle du <i>Review</i> 
 	 */
 	public String toString(){
-		return "";	
+		String phrase;
+		phrase = "---"+pseudo+"---\n";
+		phrase+= "---"+note+"---\n";
+		phrase+= comment;
+		return phrase;	
 	}
 
 

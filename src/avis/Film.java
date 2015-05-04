@@ -39,10 +39,18 @@ public class Film extends Item {
 	 */
 	@Override
 	public String toString(){
-		return "";	
+		String phrase;
+		phrase = title + " est un film " + type + ". Le directeur du film est " + director + ". Le scénariste du film est : "+ scenarist +". Il dure "+ duration + " minutes.";
+		phrase += "Commentaires du film :\n";
+		
+		//On parcours tous les reviews du film
+		for(Review r : reviews)
+		{
+			phrase+= r.toString();
+		}
+		
+		return phrase;	 
 	}
-
-
 
 
 }
