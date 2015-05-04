@@ -161,7 +161,7 @@ public class TestsAddItemFilm {
 		// tentative d'ajout par un non-membre
 		nbTests++;
 		nbErreurs += addItemFilmNotMemberTest ( sn, "Vanessa", "paul", "Le fabuleux Destin d'Amélie Poulain", "Fiction", "Jamel Debouze", "Yann Tiersen", 120, "4.2", "L'ajout d'un film par un non-membre est accepté");
-
+		
 		// tentative d'ajout par un membre avec un password erroné
 		nbTests++;
 		nbErreurs += addItemFilmNotMemberTest ( sn, "Paul", "patate", "Le fabuleux Destin d'Amélie Poulain", "Fiction", "Jamel Debouze", "Yann Tiersen", 120, "4.3", "L'ajout d'un film par un membre dont le password est erroné est accepté");

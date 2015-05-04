@@ -17,6 +17,10 @@ public class Book extends Item {
 	 * constructeur de <i>Book</i> 
 	 */
 	public Book(String title, String type, String author, int pageNumber){
+		this.title = title;
+		this.type = type;
+		this.author = author;
+		this.pageNumber = pageNumber;
 	}
 	
 	/**

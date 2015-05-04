@@ -68,7 +68,7 @@ public class SocialNetwork {
 	public SocialNetwork() {
 
 		members = new LinkedList<Member>();
-
+		items = new LinkedList<Item>();
 	}
 
 	/**
@@ -203,9 +203,48 @@ public class SocialNetwork {
 	 *
 	 */
 	public void addItemFilm(String pseudo, String password, String titre, String genre, String realisateur, String scenariste, int duree) throws BadEntry, NotMember, ItemFilmAlreadyExists {
+		//Test de validité du pseudo
+		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le pseudo n'est pas correct");
+		}
+		//Test de validité du password
+		if(password==null || password.trim().length()<4){
+			throw new BadEntry("Le password n'est pas correct");
+		}
+		//Test de validité du titre
+		if(titre==null || titre.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le titre n'est pas correct");
+		}
+		//Test de validité du genre et de l'auteur
+		if(genre==null || realisateur==null || scenariste==null){
+			throw new BadEntry("Le genre, l'auteur ou le scénariste n'est pas correct");
+		}
+		//Test de validité de la durée
+		if(duree<0){
+			throw new BadEntry("La durée est négative");
+		}
+		
+		//Test d'existence du membre
+		Member member;
+		member = findMember(pseudo);
+		if (member!= null){
+			if(password != member.getPassword()){
+				throw new NotMember("les identifiants sont incorrects");
+			}
+		}
+		else
+		{
+			throw new NotMember("les identifiants sont incorrects");
+		}
+		
+		//Test d'existence
+		Item item;
+		item = new Film(titre, genre, realisateur, scenariste, duree);
+		if(findItem(titre, false) != null){
+			throw new ItemFilmAlreadyExists("le film existe déjà");
+		}
 
-		//JUJU
-
+		items.add(item);
 	}
 
 	/**
@@ -233,9 +272,35 @@ public class SocialNetwork {
 	 *
 	 */
 	public void addItemBook(String pseudo, String password, String titre, String genre, String auteur, int nbPages) throws  BadEntry, NotMember, ItemBookAlreadyExists{
-
-		//JUJU
-
+		//Test de validité du pseudo
+		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le pseudo n'est pas correct");
+		}
+		//Test de validité du password
+		if(password==null || password.trim().length()<4){
+			throw new BadEntry("Le password n'est pas correct");
+		}
+		//Test de validité du titre
+		if(titre==null || titre.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le titre n'est pas correct");
+		}
+		//Test de validité du genre et de l'auteur
+		if(genre==null || auteur==null){
+			throw new BadEntry("Le genre ou l'auteur n'est pas correct");
+		}
+		//Test d'existence du membre
+		Member member;
+		member = findMember(pseudo);
+		if(password != member.getPassword()){
+			throw new NotMember("les identifiants sont incorrects");
+		}
+		//Test d'existence
+		Item item;
+		item = new Book(titre, genre, auteur, nbPages);
+		if(findItem(titre, true) != null){
+			throw new ItemBookAlreadyExists("le livre existe déjà");
+		}
+		items.add(item);
 	}
 
 	/**
@@ -337,7 +402,7 @@ public class SocialNetwork {
 		{
 			for(Item i : items) //
 			{
-				if(i.getTitle().trim().equalsIgnoreCase(titre.trim()) || i instanceof Book )
+				if(i.getTitle().trim().equalsIgnoreCase(titre.trim()) && i instanceof Book )
 				{
 					return i;
 				}
@@ -347,13 +412,13 @@ public class SocialNetwork {
 		{
 			for(Item i : items) //
 			{
-				if(i.getTitle().trim().equalsIgnoreCase(titre.trim()) || i instanceof Film )
+				if(i.getTitle().trim().equalsIgnoreCase(titre.trim()) && i instanceof Film )
 				{
 					return i;
 				}
 			}	
 		}
-		
+
 		return null; //retourne null si l'item n'existe pas
 	}
 
@@ -383,6 +448,7 @@ public class SocialNetwork {
 				return m; //if true return the member
 			}
 		}
+
 
 		return null; //else return null
 	}
