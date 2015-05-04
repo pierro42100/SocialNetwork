@@ -66,9 +66,9 @@ public class SocialNetwork {
 	 */
 
 	public SocialNetwork() {
-		
+
 		members = new LinkedList<Member>();
-		
+
 	}
 
 	/**
@@ -86,7 +86,17 @@ public class SocialNetwork {
 	 * @return le nombre de films
 	 */
 	public int nbFilms() {
-		return 0;
+		int compteur = 0;
+
+		for(Item i : items)
+		{
+			if(i instanceof Film)//look if the new pseudo is equal to the current member's pseudo
+			{
+				compteur++; //if true return the member
+			}
+		}
+
+		return compteur;
 	}
 
 	/**
@@ -95,7 +105,17 @@ public class SocialNetwork {
 	 * @return le nombre de livres
 	 */
 	public int nbBooks() {
-		return 0;
+		int compteur = 0;
+
+		for(Item i : items)
+		{
+			if(i instanceof Book)//look if the new pseudo is equal to the current member's pseudo
+			{
+				compteur++; //if true return the member
+			}
+		}
+
+		return compteur;
 	}
 
 
@@ -184,6 +204,8 @@ public class SocialNetwork {
 	 */
 	public void addItemFilm(String pseudo, String password, String titre, String genre, String realisateur, String scenariste, int duree) throws BadEntry, NotMember, ItemFilmAlreadyExists {
 
+		//JUJU
+
 	}
 
 	/**
@@ -212,6 +234,8 @@ public class SocialNetwork {
 	 */
 	public void addItemBook(String pseudo, String password, String titre, String genre, String auteur, int nbPages) throws  BadEntry, NotMember, ItemBookAlreadyExists{
 
+		//JUJU
+
 	}
 
 	/**
@@ -226,6 +250,9 @@ public class SocialNetwork {
 	 * (une liste vide si aucun item ne correspond)
 	 */
 	public LinkedList <String> consultItems(String nom) throws BadEntry {
+
+		//TODO
+
 		return new LinkedList <String> ();
 	}
 
@@ -256,6 +283,9 @@ public class SocialNetwork {
 	 * @return la note moyenne des notes sur ce film
 	 */
 	public float reviewItemFilm(String pseudo, String password, String titre, float note, String commentaire) throws BadEntry, NotMember, NotItem {
+
+		//TODO
+
 		return 0.0f;
 	}
 
@@ -286,6 +316,9 @@ public class SocialNetwork {
 	 * @return la note moyenne des notes sur ce livre
 	 */
 	public float reviewItemBook(String pseudo, String password, String titre, float note, String commentaire) throws BadEntry, NotMember, NotItem {
+
+		//TODO
+
 		return 0.0f;
 	}
 
@@ -300,7 +333,28 @@ public class SocialNetwork {
 
 	public Item findItem(String titre, boolean bookOrNot){
 
-		return null;
+		if(bookOrNot) //Si c'est un livre
+		{
+			for(Item i : items) //
+			{
+				if(i.getTitle().trim().equalsIgnoreCase(titre.trim()) || i instanceof Book )
+				{
+					return i;
+				}
+			}
+		}
+		else //si c'est un film
+		{
+			for(Item i : items) //
+			{
+				if(i.getTitle().trim().equalsIgnoreCase(titre.trim()) || i instanceof Film )
+				{
+					return i;
+				}
+			}	
+		}
+		
+		return null; //retourne null si l'item n'existe pas
 	}
 
 	/**
@@ -319,7 +373,7 @@ public class SocialNetwork {
 	 * @return null si le member n'existe pas ou le <i>Member</i> s'il existe
 	 */
 	public Member findMember(String pseudo){
-		
+
 		for(Member m : members)
 		{
 			//trim : no leadings or trailings blanks
@@ -329,7 +383,7 @@ public class SocialNetwork {
 				return m; //if true return the member
 			}
 		}
-		
+
 		return null; //else return null
 	}
 

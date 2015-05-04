@@ -28,11 +28,22 @@ public abstract class Item {
 	}
 	
 	/**
+	 * Méthode qui renvoit le titre de l'item
+	 * @return titre de l'<i>Item</i>
+	 */
+	
+	public String getTitle(){
+		
+		return this.title;
+	}
+	
+	/**
 	 * Méthode abstraite qui retourne un String de l'objet <i>Item</i>
 	 * @return représentation textuelle de l'<i>Item</i>
 	 */
 	
 	public abstract String toString();
+	
 
 
 }

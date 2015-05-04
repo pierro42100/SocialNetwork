@@ -46,6 +46,17 @@ public class Member {
 	}
 	
 	/**
+	 * Obtenir le <i>password</i> du <i>Member</i>
+	 * 
+	 * @return le String correspondant au password 
+	 */
+	
+	public String getPassword(){
+	
+		return this.password;
+	}
+	
+	/**
 	 * Obtenir une représentation textuelle du <i>Member</i>
 	 * 
 	 * @return la chaîne de caractères représentation textuelle du <i>Member</i> 
