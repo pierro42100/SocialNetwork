@@ -11,7 +11,7 @@ import exception.MemberAlreadyExists;
 import exception.NotItem;
 import exception.NotMember;
 
-/** 
+/**
  * @author B. Prou, E. Cousin
  * @date mars 2015
  * @version V1.0
@@ -36,11 +36,11 @@ public class TestsAddMember {
 				System.out.println("Test " + idTest + " : l'exception BadEntry a bien été levée mais le nombre de membres a été modifié");
 				return 1;
 			}
-			else 
+			else
 				return 0;
 		}
 		catch (Exception e) {
-			System.out.println ("Test " + idTest + " : exception non prévue. " + e); 
+			System.out.println ("Test " + idTest + " : exception non prévue. " + e);
 			e.printStackTrace();
 			return 1;
 		}
@@ -54,11 +54,11 @@ public class TestsAddMember {
 				System.out.println("Test " + idTest + " :  le nombre de membres n'a pas été correctement incrémenté");
 				return 1;
 			}
-			else 
+			else
 				return 0;
 		}
 		catch (Exception e) {
-			System.out.println ("Test " + idTest + " : exception non prévue. " + e); 
+			System.out.println ("Test " + idTest + " : exception non prévue. " + e);
 			e.printStackTrace();
 			return 1;
 		}
@@ -80,7 +80,7 @@ public class TestsAddMember {
 				return 0;
 		}
 		catch (Exception e) {
-			System.out.println ("Test " + idTest + " : exception non prévue. " + e); 
+			System.out.println ("Test " + idTest + " : exception non prévue. " + e);
 			e.printStackTrace();
 			return 1;
 		}
@@ -96,7 +96,7 @@ public class TestsAddMember {
 
 		int nbTests = 0;
 		int nbErreurs = 0;
-		
+
 		System.out.println("Tests  ajouter des membres au réseau social  ");
 
 
@@ -143,7 +143,7 @@ public class TestsAddMember {
 		nbTests++;
 		nbErreurs += addMemberAlreadyExistsTest(sn, new String("anToine"), "abcdefghij", "", "2.4", "L'ajout d'un membre avec un pseudo existant (avec casse différente) est accepté");
 		nbTests++;
-		nbErreurs += addMemberAlreadyExistsTest(sn, new String(" Antoine "), "abcdefghij", "", "2.5", "L'ajout d'un membre avec un pseudo existant (avec leading et trailing blanks) est accepté");		
+		nbErreurs += addMemberAlreadyExistsTest(sn, new String(" Antoine "), "abcdefghij", "", "2.5", "L'ajout d'un membre avec un pseudo existant (avec leading et trailing blanks) est accepté");
 
 
 		nbTests++;
@@ -153,7 +153,7 @@ public class TestsAddMember {
 		}
 		nbTests++;
 		if (nbLivres != sn.nbBooks()) {
-			System.out.println("Erreur  :  le nombre de livres après utilisation de addMember a été modifié");	
+			System.out.println("Erreur  :  le nombre de livres après utilisation de addMember a été modifié");
 			nbErreurs++;
 		}
 

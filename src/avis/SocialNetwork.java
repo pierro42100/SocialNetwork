@@ -150,6 +150,8 @@ public class SocialNetwork {
 
 
 		//Ajouter à la liste
+		members.add(newMember);
+
 	}
 
 
