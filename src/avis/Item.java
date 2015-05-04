@@ -17,14 +17,27 @@ public abstract class Item {
 	 * @uml.property name="reviews"
 	 * @uml.associationEnd multiplicity="(0 -1)" ordering="true" inverse="item:avis.Review"
 	 */
-	private LinkedList reviews;
+	private LinkedList<Review> reviews;
 
 	/**
 	 * Méthode qui ajoute un nouveau commentaire <i>Review</i> à un <i>Item</i>
 	 * @return un booléen qui indique si le <i>Review</i> a bien été ajouté
 	 */
 	public boolean addNewReview(String comment, float note, String pseudo){
-		return false;	
+		int nb = reviews.size(); //taille actuelle de la liste
+		Review r = new Review(comment, note, pseudo, this);
+		this.reviews.add(r);//ajout de la nouvelle review
+		
+		//test de l'ajout
+		if(nb == reviews.size() + 1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	
 	}
 	
 	/**

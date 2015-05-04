@@ -31,7 +31,11 @@ public class Review {
 	 * 
 	 */
 
-	public Review(String pseudo, float note, String comment, Item item){
+	public Review(String comment, float note, String pseudo, Item item){
+		this.pseudo = pseudo;
+		this.note = note;
+		this.comment = comment;
+		this.item = item;
 	}
 	
 	/**

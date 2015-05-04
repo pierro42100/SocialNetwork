@@ -223,7 +223,7 @@ public class SocialNetwork {
 		if(duree<0){
 			throw new BadEntry("La durée est négative");
 		}
-		
+
 		//Test d'existence du membre
 		Member member;
 		member = findMember(pseudo);
@@ -236,7 +236,7 @@ public class SocialNetwork {
 		{
 			throw new NotMember("les identifiants sont incorrects");
 		}
-		
+
 		//Test d'existence
 		Item item;
 		item = new Film(titre, genre, realisateur, scenariste, duree);
@@ -291,9 +291,18 @@ public class SocialNetwork {
 		//Test d'existence du membre
 		Member member;
 		member = findMember(pseudo);
-		if(password != member.getPassword()){
+		if(member != null)
+		{
+
+			if(password != member.getPassword()){
+				throw new NotMember("les identifiants sont incorrects");
+			}
+		}
+		else
+		{
 			throw new NotMember("les identifiants sont incorrects");
 		}
+
 		//Test d'existence
 		Item item;
 		item = new Book(titre, genre, auteur, nbPages);
