@@ -442,7 +442,7 @@ public class SocialNetwork {
 
 
 	/**
-	 * Savoir un membre existe déjà
+	 * Savoir si un membre existe déjà
 	 *
 	 * @return null si le member n'existe pas ou le <i>Member</i> s'il existe
 	 */
