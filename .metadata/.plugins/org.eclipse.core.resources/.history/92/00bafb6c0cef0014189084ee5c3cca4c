@@ -1,0 +1,39 @@
+package avis;
+
+
+public class Visitor {
+
+	/**
+	 * @uml.property  name="visitornumber"
+	 */
+	private static int visitornumber = 0;
+
+	public static int getVisitornumber() {
+		return visitornumber;
+	}
+
+	public static void setVisitornumber(int visitornumber) {
+		Visitor.visitornumber = visitornumber;
+	}
+
+		
+		/**
+		 */
+		public int connection(String pseudo, String password){
+			return 0;
+		}
+
+			
+			/**
+			 */
+			public String toString(){
+				return "";
+			}
+
+				
+				/**
+				 */
+				public Visitor(){
+				}
+
+}
