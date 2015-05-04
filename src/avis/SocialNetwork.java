@@ -66,6 +66,9 @@ public class SocialNetwork {
 	 */
 
 	public SocialNetwork() {
+		
+		members = new LinkedList<Member>();
+		
 	}
 
 	/**
@@ -74,7 +77,7 @@ public class SocialNetwork {
 	 * @return le nombre de membres
 	 */
 	public int nbMembers() {
-		return 0;
+		return members.size();//return number of members
 	}
 
 	/**
@@ -147,7 +150,6 @@ public class SocialNetwork {
 		{
 			throw new MemberAlreadyExists("Un membre avec ce même pseudo");
 		}
-
 
 		//Ajouter à la liste
 		members.add(newMember);
@@ -317,6 +319,9 @@ public class SocialNetwork {
 	 * @return null si le member n'existe pas ou le <i>Member</i> s'il existe
 	 */
 	public Member findMember(String pseudo){
+		
+		
+		
 		return null;
 	}
 

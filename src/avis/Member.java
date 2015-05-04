@@ -7,11 +7,6 @@ package avis;
  */
 public class Member {
 
-	/**
-	 * @uml.property  name="memberNumber"
-	 */
-	private static int memberNumber = 0;
-	
 	/** 
 	 * @uml.property name="pseudo"
 	 */
@@ -37,7 +32,6 @@ public class Member {
 		this.password = password;
 		this.pseudo = pseudo;
 		this.profil = profil;
-		memberNumber++;
 	}
 
 	/**
