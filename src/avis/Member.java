@@ -35,6 +35,17 @@ public class Member {
 	}
 
 	/**
+	 * Obtenir le <i>pseudo</i> du <i>Member</i>
+	 * 
+	 * @return le String pseudo 
+	 */
+	
+	public String getPseudo(){
+	
+		return this.pseudo;
+	}
+	
+	/**
 	 * Obtenir une représentation textuelle du <i>Member</i>
 	 * 
 	 * @return la chaîne de caractères représentation textuelle du <i>Member</i> 

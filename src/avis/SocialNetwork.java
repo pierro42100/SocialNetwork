@@ -1,8 +1,8 @@
 package avis;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
-
 
 import exception.BadEntry;
 import exception.ItemFilmAlreadyExists;
@@ -51,13 +51,13 @@ public class SocialNetwork {
 	 * @uml.property  name="members"
 	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" inverse="socialNetwork:avis.Member"
 	 */
-	private LinkedList members;
+	private LinkedList<Member> members;
 
 	/**
 	 * @uml.property  name="items"
 	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" inverse="socialNetwork:avis.Item"
 	 */
-	private LinkedList items;
+	private LinkedList<Item> items;
 
 
 	/**
@@ -320,9 +320,17 @@ public class SocialNetwork {
 	 */
 	public Member findMember(String pseudo){
 		
+		for(Member m : members)
+		{
+			//trim : no leadings or trailings blanks
+			//equalsIgnoreCase : without case
+			if(m.getPseudo().trim().equalsIgnoreCase(pseudo.trim()))//look if the new pseudo is equal to the current member's pseudo
+			{
+				return m; //if true return the member
+			}
+		}
 		
-		
-		return null;
+		return null; //else return null
 	}
 
 

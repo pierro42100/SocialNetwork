@@ -136,6 +136,8 @@ public class TestsAddMember {
 
 		// tentative d'ajout de membre "existant"
 
+		
+		
 		nbTests++;
 		nbErreurs += addMemberAlreadyExistsTest(sn, new String("Paul"), "abcdefghij", "", "2.2", "L'ajout d'un membre avec le pseudo du premier membre ajouté est accepté");
 		nbTests++;
