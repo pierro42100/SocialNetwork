@@ -89,7 +89,7 @@ public abstract class Item {
 	
 	/**
 	 * Méthode qui renvoit le titre de l'item
-	 * @return titre de l'<i>Item</i>
+	 * @return String : titre de l'<i>Item</i>
 	 */
 	
 	public String getTitle(){
@@ -107,8 +107,8 @@ public abstract class Item {
 	}
 	
 	/**
-	 * Méthode abstraite qui retourne un String de l'objet <i>Item</i>
-	 * @return représentation textuelle de l'<i>Item</i>
+	 * Méthode abstraite qui retourne un String de l'objet <i>Item</i> (Book ou Film)
+	 * @return String : représentation textuelle de l'<i>Item</i>
 	 */
 	
 	public abstract String toString();

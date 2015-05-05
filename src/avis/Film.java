@@ -1,5 +1,6 @@
 package avis;
 
+import java.util.LinkedList;
 
 public class Film extends Item {
 
@@ -23,7 +24,9 @@ public class Film extends Item {
 	 * constructeur de <i>Film</i> 
 	 */
 	public Film(String title, String type, String director, String scenarist, int duration){
-		super();
+		
+		reviews = new LinkedList<Review>();
+		
 		this.title= title;
 		this.type = type;
 		this.director = director;

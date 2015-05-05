@@ -284,6 +284,10 @@ public class SocialNetwork {
 		if(titre==null || titre.replaceAll(" ", "").length()<1){
 			throw new BadEntry("Le titre n'est pas correct");
 		}
+		//Test de validité du nombre de pages
+		if(nbPages < 0){
+			throw new BadEntry("Le nombre de pages n'est pas correct");
+		}
 		//Test de validité du genre et de l'auteur
 		if(genre==null || auteur==null){
 			throw new BadEntry("Le genre ou l'auteur n'est pas correct");
@@ -397,14 +401,14 @@ public class SocialNetwork {
 		{
 			throw new NotMember("les identifiants sont incorrects");
 		}
-		
+
 		Item f;
 		f = findItem(titre, false);
 		//Test de l'existance du film
 		if(f == null){ //Si aucun film ne possède ce titre
 			throw new NotItem("Le film n'existe pas");
 		}
-		
+
 		//Dans le cas où le film existe on peut l'ajouter 
 		float newNote = 0.0f;
 		//Test si un commentaire existe pour ce membre
@@ -420,9 +424,9 @@ public class SocialNetwork {
 		{
 
 			newNote = f.updateReview(r, commentaire, note);
-			
+
 		}
-		
+
 
 		return newNote;
 	}

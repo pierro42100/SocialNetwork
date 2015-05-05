@@ -55,6 +55,7 @@ public class TestsReviewItemFilm {
 		//(levée de NotMember et le commentaire n'est pas ajouté)
 		//Si c'est le cas, rien n'est fait
 		//sinon, affiche le message d'erreur passé en paramètre
+		
 		float noteRetournee = 0.0f;
 
 		try{
@@ -119,11 +120,21 @@ public class TestsReviewItemFilm {
 		//vérifie le bon fonctionnement de la méthode dans le cas ou les paramêtres passés sont corrects
 		//c'est à dire que le commentaire et la note sont bien pris en compte pour le film
 
-
+		float noteRetournee = 0.0f;
 		try{
-			sn.reviewItemFilm(pseudo, password, titre, note, commentaire);		
-			System.out.println ("Test " + idTest + " : " + messErreur);
-			return 1;
+			noteRetournee = sn.reviewItemFilm(pseudo, password, titre, note, commentaire);		
+
+			if(noteRetournee == note) //si la seule note ajoutée correspond à la moyenne
+			{
+				return 0 ;
+			}
+			else //sinon
+			{
+				System.out.println ("Test " + idTest + " : " + messErreur);
+				return 1;
+			
+			}
+
 		}
 		catch (Exception e) {
 			System.out.println ("Test " + idTest + " : exception non prévue. " + e); 

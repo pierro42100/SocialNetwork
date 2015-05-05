@@ -1,5 +1,6 @@
 package avis;
 
+import java.util.LinkedList;
 
 public class Book extends Item {
 
@@ -17,6 +18,9 @@ public class Book extends Item {
 	 * constructeur de <i>Book</i> 
 	 */
 	public Book(String title, String type, String author, int pageNumber){
+		
+		reviews = new LinkedList<Review>();
+		
 		this.title = title;
 		this.type = type;
 		this.author = author;
