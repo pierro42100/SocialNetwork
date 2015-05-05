@@ -23,7 +23,7 @@ public class Film extends Item {
 	 * constructeur de <i>Film</i> 
 	 */
 	public Film(String title, String type, String director, String scenarist, int duration){
-		
+		super();
 		this.title= title;
 		this.type = type;
 		this.director = director;

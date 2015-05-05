@@ -32,11 +32,13 @@ public class TestsReviewItemFilm {
 			//CAS OÙ IL N'Y A QU'UNE SEULE NOTE POUR LE FILM
 
 			//---->VRAIMENT PAS SUR DE LA CONDITION<----- : PAR EXEMPLE SI LA NOTE NE MODIFIE QUE TRES PEU LA MOYENNE ???
-			if(noteRetournee != note){
+
+			if(noteRetournee == note){//si la note retournée est égale à la seule note rajoutée --> pas normale : cela veut dire que la note à été modifiée 
 				System.out.println("Test " + idTest + " : l'exception BadEntry a bien été levée mais la note semble avoir été modifiée");				
 				return 1;
 			}
-			else{ //SI LA NOTE QUE L'ON A PASSÉE EST ÉGALE À LA NOTERETOURNEE
+			else{ 
+				//si la note retournee n'est pas égale à la seule note ajoutée --> OK
 				return 0;
 			}
 		}
@@ -53,16 +55,24 @@ public class TestsReviewItemFilm {
 		//(levée de NotMember et le commentaire n'est pas ajouté)
 		//Si c'est le cas, rien n'est fait
 		//sinon, affiche le message d'erreur passé en paramètre
+		float noteRetournee = 0.0f;
 
 		try{
-			sn.reviewItemFilm(pseudo, password, titre, note, commentaire);		
+			noteRetournee = sn.reviewItemFilm(pseudo, password, titre, note, commentaire);		
 			System.out.println ("Test " + idTest + " : " + messErreur);
 			return 1;
 		}
 		catch (NotMember e) {
 
-			System.out.println("Test " + idTest + " : l'exception NotMember a bien été levée mais la note semble avoir été modifiée");				
-			return 1;
+			if(noteRetournee == note){
+				//si la note retournée est égale à la seule note rajoutée --> pas normale : cela veut dire que la note à été modifiée 
+				System.out.println("Test " + idTest + " : l'exception NotMember a bien été levée mais la note semble avoir été modifiée");				
+				return 1;
+			}
+			else
+			{//si la note retournee n'est pas égale à la seule note ajoutée --> OK
+				return 0;
+			}
 		}
 		catch (Exception e) {
 			System.out.println ("Test " + idTest + " : exception non prévue. " + e); 
@@ -77,16 +87,24 @@ public class TestsReviewItemFilm {
 		//vérifie que le titre est bien le titre d'un film et levée d'exception NotItem
 		//si c'est le cas rien n'est fait,
 		//sinon affichage du message d'erreur passé en paramêtre
-
+		float noteRetournee = 0.0f;
+		
 		try{
-			sn.reviewItemFilm(pseudo, password, titre, note, commentaire);		
+			noteRetournee = sn.reviewItemFilm(pseudo, password, titre, note, commentaire);		
 			System.out.println ("Test " + idTest + " : " + messErreur);
 			return 1;
 		}
 		catch (NotItem e) {
-
+			//si la note retournée est égale à la seule note rajouté --> pas normale : cela veut dire que la note à été modifiée 
+			if(noteRetournee == note)
+			{
 			System.out.println("Test " + idTest + " : l'exception NotItem bien été levée mais la note semble avoir été modifiée");				
 			return 1;
+			}
+			else
+			{ //si la note retournée n'est pas égale à la seule note rajoutée : OK
+				return 0;
+			}
 
 		}
 		catch (Exception e) {
@@ -138,7 +156,7 @@ public class TestsReviewItemFilm {
 			System.out.println("TEST AJOUT NOUVEAU MEMBRE BadEntry: Impossible");
 		}
 
-		
+
 		//Il faut ajouter un film pour tester la méthode d'après	
 		try{
 			sn.addItemFilm("Paul", "paul", "La grande vadrouille", "comique", "Gérard Oury", "Gérard Oury", 132);
@@ -197,9 +215,9 @@ public class TestsReviewItemFilm {
 		nbTests++;
 		nbErreurs += reviewItemFilmNotMemberTest(sn, "Paul", "mdpmauvais", "titre", 2.0f, "commentaire", "6.2", "L'ajout d'un commentaire avec un pseudo et un mot de passe qui ne correspondent pas a fonctionné");
 
-		
+
 		nbTests++;
-		nbErreurs += reviewItemFilmNotItemTest(sn, "Paul", "paul", "La grande vadrouille", 2.5f, "ce film est vraiment bien", "6.3", "L'ajout d'un commentaire avec des paramêtres corrects a fonctionné");
+		nbErreurs += reviewItemFilmOKTest(sn, "Paul", "paul", "La grande vadrouille", 2.5f, "ce film est vraiment bien", "6.3", "L'ajout d'un commentaire avec des paramêtres corrects a fonctionné");
 
 		nbTests++;
 		nbErreurs += reviewItemFilmNotItemTest(sn, "Paul", "paul", "La petite patrouille", 2.5f, "ce film est vraiment bien", "6.4", "L'ajout d'un commentaire avec un titre de film qui n'existe pas a fonctionné");
