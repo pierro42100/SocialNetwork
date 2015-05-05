@@ -14,6 +14,10 @@ public abstract class Item {
 	 */
 	protected String type;
 	/** 
+	 * @uml.property name="note"
+	 */
+	protected float note;
+	/** 
 	 * @uml.property name="reviews"
 	 * @uml.associationEnd multiplicity="(0 -1)" ordering="true" inverse="item:avis.Review"
 	 */
@@ -28,6 +32,9 @@ public abstract class Item {
 		Review r = new Review(comment, note, pseudo, this);
 		this.reviews.add(r);//ajout de la nouvelle review
 		
+		//Mise à jour de la note
+		this.note = (note*nb + note)/(nb+1);//nouvelle note = (note en cours*nb note + note)/(note en cours + 1)
+				
 		//test de l'ajout
 		if(nb == reviews.size() + 1)
 		{
@@ -38,6 +45,26 @@ public abstract class Item {
 			return false;
 		}
 	
+	}
+	
+	/**
+	 * Méthode qui recherche un <i>Review</i> parmis la liste de <i>Review</i> d'un <i>Item</i> à partir du pseudo du Member
+	 * @return null si le <i>Review</i> n'existe par
+	 * @return le <i>Review</i> qui a été créé par ce Member
+	 */
+	public Review findReview(String pseudo){
+		
+		for(Review r : reviews)
+		{
+			if(r.getPseudo().trim().equalsIgnoreCase(pseudo.trim()) )//si le pseudo correspond au pseudo du commentaire
+			{
+				return r; //if true return the member
+			}
+		}
+
+
+		return null; //else return null
+		
 	}
 	
 	/**

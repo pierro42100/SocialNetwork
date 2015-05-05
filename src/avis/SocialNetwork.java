@@ -360,6 +360,65 @@ public class SocialNetwork {
 
 		//TODO
 
+		//Test de validité du pseudo
+		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le pseudo n'est pas correct");
+		}
+		//Test de validité du password
+		if(password==null || password.trim().length()<4){
+			throw new BadEntry("Le password n'est pas correct");
+		}
+		//Test de validité du titre
+		if(titre==null || titre.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le titre n'est pas correct");
+		}
+		//Test de validité de la note
+		if(note > 5.0 || note < 0.0)//Si pas comprise entre 0.0 et 5.0
+		{
+			throw new BadEntry("La note n'est pas correcte");
+		}
+		//Test de validité du commentaire
+		if(commentaire == null)
+		{
+			throw new BadEntry("Le commentaire n'est pas instancié");
+		}
+
+		//Test d'existence du membre
+		Member member;
+		member = findMember(pseudo);
+		if(member != null)
+		{
+
+			if(password != member.getPassword()){
+				throw new NotMember("les identifiants sont incorrects");
+			}
+		}
+		else
+		{
+			throw new NotMember("les identifiants sont incorrects");
+		}
+		
+		Item f;
+		f = findItem(titre, false);
+		//Test de l'existance du film
+		if(f == null){ //Si aucun film ne possède ce titre
+			throw new NotItem("Le film n'existe pas");
+		}
+		
+		//Dans le cas où le film existe on peut l'ajouter 
+		
+		//Test si un commentaire existe pour ce membre
+		if(f.findReview(pseudo) == null);
+		{
+			//Dans le cas où aucun commentaire n'existe pas pour ce pseudo
+			f.addNewReview(commentaire, note, pseudo);
+		}
+		else//sinon, dans le cas où le commentaire existe déjà
+		{
+			
+		}
+		
+
 		return 0.0f;
 	}
 

@@ -63,7 +63,7 @@ public class Member {
 	 */
 	public String toString(){
 		String phrase;
-		phrase = "Le pseudo du membre est : "+pseudo+". Son password est :"+"password ici ?"+". Profil :"+profil;
+		phrase = "Le pseudo du membre est : "+pseudo+". Son password est :"+password+". Profil :"+profil;
 		return phrase;
 		
 	}

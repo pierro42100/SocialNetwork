@@ -13,7 +13,7 @@ public class Review {
 	/**
 	 * @uml.property  name="note"
 	 */
-	private float note;
+	private float note = 0.0f;
 
 	/**
 	 * @uml.property  name="comment"
@@ -25,7 +25,7 @@ public class Review {
 	 * @uml.associationEnd  multiplicity="(1 1)" inverse="reviews:avis.Item"
 	 */
 	private Item item = null;
-	
+
 	/**
 	 * constructeur de <i>Review</i> 
 	 * 
@@ -37,7 +37,7 @@ public class Review {
 		this.comment = comment;
 		this.item = item;
 	}
-	
+
 	/**
 	 * Obtenir une représentation textuelle du <i>Review</i>.
 	 * 
@@ -51,6 +51,14 @@ public class Review {
 		return phrase;	
 	}
 
+	/**
+	 * Obtenir le pseudo du <i>Review></i>
+	 * @return le pseudo
+	 */
+	public String getPseudo(){
+
+		return this.pseudo;
+	}
 
 
 
