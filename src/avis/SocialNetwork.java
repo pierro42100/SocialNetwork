@@ -408,13 +408,16 @@ public class SocialNetwork {
 		//Dans le cas où le film existe on peut l'ajouter 
 		
 		//Test si un commentaire existe pour ce membre
-		if(f.findReview(pseudo) == null);
+		Review r;
+		r = f.findReview(pseudo);
+		if(r == null)
 		{
 			//Dans le cas où aucun commentaire n'existe pas pour ce pseudo
 			f.addNewReview(commentaire, note, pseudo);
 		}
 		else//sinon, dans le cas où le commentaire existe déjà
 		{
+			f.updateReview(r, commentaire, note);
 			
 		}
 		

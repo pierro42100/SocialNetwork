@@ -38,6 +38,7 @@ public class Review {
 		this.item = item;
 	}
 
+
 	/**
 	 * Obtenir une représentation textuelle du <i>Review</i>.
 	 * 
@@ -58,6 +59,33 @@ public class Review {
 	public String getPseudo(){
 
 		return this.pseudo;
+	}
+	
+	/**
+	 * Obtenir le pseudo du <i>Review></i>
+	 * @return le pseudo
+	 */
+	public float getNote(){
+
+		return this.note;
+	}
+
+	/**
+	 * Set le comment du <i>Review></i>
+	 * 
+	 */
+	public void setComment(String comment){
+
+		this.comment = comment;
+	}
+	
+	/**
+	 * Set la note du <i>Review></i>
+	 * 
+	 */
+	public void setNote(float note){
+
+		this.note = note;
 	}
 
 

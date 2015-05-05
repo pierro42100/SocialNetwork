@@ -46,6 +46,26 @@ public abstract class Item {
 		}
 	
 	}
+
+	/**
+	 * Update la note du Review passé en paramêtre
+	 * 
+	 */
+	public float updateReview(Review r, String comment, float note){
+		
+		float oldNote = r.getNote();//l'ancienne note du review qui doit être mise à jour
+		
+		r.setComment(comment);
+		r.setNote(note);//nouvelle note
+		
+		float oldMoy = this.note; //ancienne Moyenne(note)
+		
+		float cacheMoy = (oldMoy - note)/(this.reviews.size()-1); //Moyenne tempo
+		
+		this.note = (cacheMoy*(this.reviews.size()-1)+note)/(this.reviews.size()); //nouvelle Moyenne(note)
+		
+		return this.note; //retourne la note mise à jour
+	}
 	
 	/**
 	 * Méthode qui recherche un <i>Review</i> parmis la liste de <i>Review</i> d'un <i>Item</i> à partir du pseudo du Member
