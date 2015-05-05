@@ -96,6 +96,15 @@ public abstract class Item {
 		
 		return this.title;
 	}
+	/**
+	 * Méthode qui renvoit la note
+	 * @return float note
+	 */
+	
+	public float getNote(){
+		
+		return this.note;
+	}
 	
 	/**
 	 * Méthode abstraite qui retourne un String de l'objet <i>Item</i>
