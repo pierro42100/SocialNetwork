@@ -1,7 +1,34 @@
 package avis;
 
 import java.util.LinkedList;
-
+/**
+ * <p>
+ * Un <i>Item</i> est une classe abstraite qui permet de factoriser certaines méthodes et certains attributs.
+ * Les classes <i>Book</i> et <i>Film</i> héritent de cette classe.
+ * </p>
+ * 
+ * <p>Les attributs de <b>Item</b> sont : </p>
+ * <p>
+ * <i>title</i> : String qui correspond au nom de l'<i>Item</i>
+ * </p>
+ * <p>
+ * <i>type</i> : String qui correspond au type de l'<i>Item</i>
+ * </p>
+ * 
+ * <p>
+ * <i>note</i> : float qui correspond à la note moyenne l'<i>Item</i>
+ * </p>
+ * 
+ * <p>
+ * <i>review</i> : LinkedList qui contient tous les commentaires associés à cet <i>Item</i>
+ * </p>
+ * 
+ * <p>Les méthodes de <b>Item</b> permetttent d'ajouter un nouveau commentaire à l'<i>Item</i> en cours, de mettre à jour un commentaire et de trouver un commentaire parmi la liste.</p> 
+ * </p>
+ * 
+ * <p>Il existe également des méthodes permettant de récupérer certains attributs (get)</p>
+ * <p>La méthode toString est déclarée. Elle devra être redéfinie par les classes qui héritent de <i>Item</i>
+ */
 
 public abstract class Item {
 
