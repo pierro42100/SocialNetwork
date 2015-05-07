@@ -39,6 +39,14 @@ public class TestSocialNetwork {
 	    System.out.println("\n\n ***************************************\n");
 
 	    TestsReviewItemFilm.main(resultats);
+	    
+	    System.out.println("\n\n ***************************************\n");
+
+	    TestsAddItemBook.main(resultats);
+	      
+	    System.out.println("\n\n ***************************************\n");
+
+	    TestsReviewItemBook.main(resultats);
 	      
 	    System.out.println("\n\n ***************************************\n");
 	      

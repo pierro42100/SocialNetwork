@@ -58,10 +58,10 @@ public abstract class Item {
 		int nb = reviews.size(); //taille actuelle de la liste
 		Review r = new Review(comment, note, pseudo, this);
 		this.reviews.add(r);//ajout de la nouvelle review
-		
+
 		//Mise à jour de la note
 		this.note = (note*nb + note)/(nb+1);//nouvelle note = (note en cours*nb note + note)/(note en cours + 1)
-				
+
 		//test de l'ajout
 		if(nb == reviews.size() + 1)
 		{
@@ -71,7 +71,7 @@ public abstract class Item {
 		{
 			return false;
 		}
-	
+
 	}
 
 	/**
@@ -79,67 +79,88 @@ public abstract class Item {
 	 * 
 	 */
 	public float updateReview(Review r, String comment, float note){
+			
+		if(this.reviews.size() != 1)
+		{
+			//on récupère la note du review en cours
+			float oldNote = r.getNote();//l'ancienne note du review qui doit être mise à jour
+			//on change la note du review et le commentaire
+			r.setComment(comment);
+			r.setNote(note);//nouvelle note
+			//moyenne avant update
+			float oldMoy = this.note; //ancienne Moyenne(note)
+
+			//
+			//
+
+			float cacheMoy = (oldMoy*(this.reviews.size())-oldNote)/(this.reviews.size()-1); //Moyenne tempo
+			
+			this.note = (cacheMoy*(this.reviews.size()-1)+note)/(this.reviews.size()); //nouvelle Moyenne(note)
+			
+			return this.note; //retourne la note mise à jour
+		}
+		else
+		{
+			r.setComment(comment);
+			r.setNote(note);//nouvelle note
+			this.note = note;
+			return this.note;
+		}
 		
-		float oldNote = r.getNote();//l'ancienne note du review qui doit être mise à jour
-		
-		r.setComment(comment);
-		r.setNote(note);//nouvelle note
-		
-		float oldMoy = this.note; //ancienne Moyenne(note)
-		
-		float cacheMoy = (oldMoy - note)/(this.reviews.size()-1); //Moyenne tempo
-		
-		this.note = (cacheMoy*(this.reviews.size()-1)+note)/(this.reviews.size()); //nouvelle Moyenne(note)
-		
-		return this.note; //retourne la note mise à jour
 	}
-	
+
 	/**
 	 * Méthode qui recherche un <i>Review</i> parmis la liste de <i>Review</i> d'un <i>Item</i> à partir du pseudo du Member
 	 * @return null si le <i>Review</i> n'existe par
 	 * @return le <i>Review</i> qui a été créé par ce Member
 	 */
 	public Review findReview(String pseudo){
-		
-		for(Review r : reviews)
+
+		for(int i = 0; i < this.reviews.size(); i++)
 		{
-			if(r.getPseudo().trim().equalsIgnoreCase(pseudo.trim()) )//si le pseudo correspond au pseudo du commentaire
+			if(reviews.get(i).getPseudo().equalsIgnoreCase(pseudo))//si le pseudo correspond au pseudo du commentaire
 			{
-				return r; //if true return the member
-			}
+
+				return reviews.get(i); //if true return the member
+
+			}	
 		}
+		//for(Review r : reviews)
+		//{
+
+		//}
 
 
 		return null; //else return null
-		
+
 	}
-	
+
 	/**
 	 * Méthode qui renvoit le titre de l'item
 	 * @return String : titre de l'<i>Item</i>
 	 */
-	
+
 	public String getTitle(){
-		
+
 		return this.title;
 	}
 	/**
 	 * Méthode qui renvoit la note
 	 * @return float note
 	 */
-	
+
 	public float getNote(){
-		
+
 		return this.note;
 	}
-	
+
 	/**
 	 * Méthode abstraite qui retourne un String de l'objet <i>Item</i> (Book ou Film)
 	 * @return String : représentation textuelle de l'<i>Item</i>
 	 */
-	
+
 	public abstract String toString();
-	
+
 
 
 }

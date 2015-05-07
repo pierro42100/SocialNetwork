@@ -555,11 +555,6 @@ public class IHM {
 
 
 
-
-
-
-
-
 	public static void main (String [] args) {
 
 		try {
@@ -572,8 +567,14 @@ public class IHM {
 			sn.addMember("Paul", "paul", "lecteur impulsif");
 			sn.addMember("Antoine", "antoine", "grand amoureux de littérature");
 			sn.addMember("Alice", "alice", "23 ans, sexy");
-
-
+			
+			sn.addItemFilm("Paul", "paul", "La grande vadrouille", "comique", "Gérard Oury", "Gérard Oury", 132);
+			sn.addItemFilm("Paul", "paul", "Avengers", "historique", "marvel", "Julien", 132);
+			
+			sn.addItemBook("Paul", "paul", "La Bible", "religion", "plusieurs auteurs", 2000);
+			sn.addItemBook("Paul", "paul", "L'informaticien", "revue", "Henri Verdier", 200);
+			
+			
 		}
 		catch (Exception e) {
 			System.out.println("Exception inattendue : " + e);

@@ -228,7 +228,7 @@ public class SocialNetwork {
 		Member member;
 		member = findMember(pseudo);
 		if (member!= null){
-			if(password != member.getPassword()){
+			if(!password.equalsIgnoreCase(member.getPassword())){
 				throw new NotMember("les identifiants sont incorrects");
 			}
 		}
@@ -298,13 +298,14 @@ public class SocialNetwork {
 		if(member != null)
 		{
 
-			if(password != member.getPassword()){
-				throw new NotMember("les identifiants sont incorrects");
-			}
+			if(!password.equals(member.getPassword()))
+					{
+				throw new NotMember("les identifiants sont incorrects 1");
+					}
 		}
 		else
 		{
-			throw new NotMember("les identifiants sont incorrects");
+			throw new NotMember("les identifiants sont incorrects 2");
 		}
 
 		//Test d'existence
@@ -392,7 +393,7 @@ public class SocialNetwork {
 		if(member != null)
 		{
 
-			if(password != member.getPassword()){
+			if(!password.equals(member.getPassword())){
 				throw new NotMember("les identifiants sont incorrects");
 			}
 		}
@@ -415,9 +416,11 @@ public class SocialNetwork {
 		r = f.findReview(pseudo);
 		if(r == null)
 		{
+
 			//Dans le cas où aucun commentaire n'existe pas pour ce pseudo
 			f.addNewReview(commentaire, note, pseudo);
 			newNote = f.getNote();
+
 		}
 		else//sinon, dans le cas où le commentaire existe déjà
 		{
@@ -487,13 +490,14 @@ public class SocialNetwork {
 		if(member != null)
 		{
 
-			if(password != member.getPassword()){
-				throw new NotMember("les identifiants sont incorrects");
+			if(!password.equals(member.getPassword())){
+				throw new NotMember("les identifiants sont incorrects 1");
 			}
+
 		}
 		else
 		{
-			throw new NotMember("les identifiants sont incorrects");
+			throw new NotMember("les identifiants sont incorrects 2");
 		}
 
 		Item b;
@@ -508,6 +512,7 @@ public class SocialNetwork {
 		//Test si un commentaire existe pour ce membre
 		Review r;
 		r = b.findReview(pseudo);
+
 		if(r == null)
 		{
 			//Dans le cas où aucun commentaire n'existe pas pour ce pseudo
@@ -566,7 +571,23 @@ public class SocialNetwork {
 	 * @return la chaîne de caractères représentation textuelle du <i>SocialNetwork</i>
 	 */
 	public String toString() {
-		return "";
+		String phrase;
+		phrase = "\n Liste des membres : \n";
+		for(Member m : members)
+		{
+			phrase+= m.toString();
+		}
+
+
+		phrase += "\n Liste des items : \n";
+		for(Item i : items)
+		{
+			phrase+= i.toString() + "\n";
+		}
+
+
+
+		return phrase;
 	}
 
 

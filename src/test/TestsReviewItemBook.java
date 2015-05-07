@@ -221,7 +221,6 @@ public class TestsReviewItemBook {
 		nbTests++;
 		nbErreurs += reviewItemBookNotMemberTest(sn, "Paul", "mdpmauvais", "titre", 2.0f, "commentaire", "6.2", "L'ajout d'un commentaire avec un pseudo et un mot de passe qui ne correspondent pas a fonctionné");
 
-
 		nbTests++;
 		nbErreurs += reviewItemBookOKTest(sn, "Paul", "paul", "L'Etranger", 2.5f, "ce livre est vraiment bien", "6.3", "L'ajout d'un commentaire avec des paramêtres corrects a fonctionné");
 
@@ -246,7 +245,6 @@ public class TestsReviewItemBook {
 		{
 			System.out.println("TEST AJOUT NOUVEAU MEMBRE ItemBookAlreadyExits: Impossible");
 		}
-
 
 
 		//OK Test
