@@ -362,7 +362,6 @@ public class SocialNetwork {
 	 */
 	public float reviewItemFilm(String pseudo, String password, String titre, float note, String commentaire) throws BadEntry, NotMember, NotItem {
 
-		//TODO
 
 		//Test de validité du pseudo
 		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
@@ -459,9 +458,71 @@ public class SocialNetwork {
 	 */
 	public float reviewItemBook(String pseudo, String password, String titre, float note, String commentaire) throws BadEntry, NotMember, NotItem {
 
-		//TODO
+		//Test de validité du pseudo
+		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le pseudo n'est pas correct");
+		}
+		//Test de validité du password
+		if(password==null || password.trim().length()<4){
+			throw new BadEntry("Le password n'est pas correct");
+		}
+		//Test de validité du titre
+		if(titre==null || titre.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le titre n'est pas correct");
+		}
+		//Test de validité de la note
+		if(note > 5.0 || note < 0.0)//Si pas comprise entre 0.0 et 5.0
+		{
+			throw new BadEntry("La note n'est pas correcte");
+		}
+		//Test de validité du commentaire
+		if(commentaire == null)
+		{
+			throw new BadEntry("Le commentaire n'est pas instancié");
+		}
 
-		return 0.0f;
+		//Test d'existence du membre
+		Member member;
+		member = findMember(pseudo);
+		if(member != null)
+		{
+
+			if(password != member.getPassword()){
+				throw new NotMember("les identifiants sont incorrects");
+			}
+		}
+		else
+		{
+			throw new NotMember("les identifiants sont incorrects");
+		}
+
+		Item b;
+		b = findItem(titre, true);//c'est un livre
+		//Test de l'existance du livre
+		if(b == null){ //Si aucun livre ne possède ce titre
+			throw new NotItem("Le livre n'existe pas");
+		}
+
+		//Dans le cas où le livre existe on peut l'ajouter 
+		float newNote = 0.0f;
+		//Test si un commentaire existe pour ce membre
+		Review r;
+		r = b.findReview(pseudo);
+		if(r == null)
+		{
+			//Dans le cas où aucun commentaire n'existe pas pour ce pseudo
+			b.addNewReview(commentaire, note, pseudo);
+			newNote = b.getNote();
+		}
+		else//sinon, dans le cas où le commentaire existe déjà
+		{
+
+			newNote = b.updateReview(r, commentaire, note);
+
+		}
+
+
+		return newNote;
 	}
 
 	/**

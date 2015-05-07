@@ -229,7 +229,9 @@ public class TestsReviewItemFilm {
 
 		nbTests++;
 		nbErreurs += reviewItemFilmOKTest(sn, "Paul", "paul", "La grande vadrouille", 2.5f, "ce film est vraiment bien", "6.3", "L'ajout d'un commentaire avec des paramêtres corrects a fonctionné");
-
+		
+		//TODO tester l'update
+		
 		nbTests++;
 		nbErreurs += reviewItemFilmNotItemTest(sn, "Paul", "paul", "La petite patrouille", 2.5f, "ce film est vraiment bien", "6.4", "L'ajout d'un commentaire avec un titre de film qui n'existe pas a fonctionné");
 
