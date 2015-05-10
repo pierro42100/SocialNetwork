@@ -1,7 +1,6 @@
 package test;
 
 import avis.SocialNetwork;
-
 import exception.BadEntry;
 import exception.ItemFilmAlreadyExists;
 import exception.ItemBookAlreadyExists;
