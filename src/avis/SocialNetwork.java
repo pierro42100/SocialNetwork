@@ -329,11 +329,18 @@ public class SocialNetwork {
 	 * (une liste vide si aucun item ne correspond)
 	 */
 	public LinkedList <String> consultItems(String nom) throws BadEntry {
-
-		//TODO
-
-		return new LinkedList <String> ();
+		if(nom == null||nom.trim().length()<1){
+			throw new BadEntry("La recherche n'est pas valide");
+		}
+		LinkedList <String> res = new LinkedList <String>();
+		for(Item i: items){
+			if(nom.equals(i.getTitle())){
+				res.add(i.toString());
+			}
+		}
+		return res;
 	}
+
 
 
 
