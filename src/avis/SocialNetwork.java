@@ -1,4 +1,4 @@
-package avis;
+ package avis;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -220,7 +220,7 @@ public class SocialNetwork {
 			throw new BadEntry("Le genre, l'auteur ou le scénariste n'est pas correct");
 		}
 		//Test de validité de la durée
-		if(duree<0){
+		if(duree <= 0){
 			throw new BadEntry("La durée est négative");
 		}
 
@@ -285,7 +285,7 @@ public class SocialNetwork {
 			throw new BadEntry("Le titre n'est pas correct");
 		}
 		//Test de validité du nombre de pages
-		if(nbPages < 0){
+		if(nbPages <= 0){
 			throw new BadEntry("Le nombre de pages n'est pas correct");
 		}
 		//Test de validité du genre et de l'auteur
@@ -334,7 +334,7 @@ public class SocialNetwork {
 		}
 		LinkedList <String> res = new LinkedList <String>();
 		for(Item i: items){
-			if(nom.equals(i.getTitle())){
+			if(nom.trim().equalsIgnoreCase((i.getTitle().trim()))){
 				res.add(i.toString());
 			}
 		}

@@ -44,6 +44,7 @@ public class Film extends Item {
 	public String toString(){
 		String phrase;
 		phrase = title + " est un film " + type + ". Le directeur du film est " + director + ". Le scénariste du film est : "+ scenarist +". Il dure "+ duration + " minutes.";
+		phrase += "\n note du film :" + this.note;
 		phrase += "\n Commentaires du film :\n";
 		
 		//On parcours tous les reviews du film

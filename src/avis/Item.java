@@ -60,7 +60,7 @@ public abstract class Item {
 		this.reviews.add(r);//ajout de la nouvelle review
 
 		//Mise à jour de la note
-		this.note = (note*nb + note)/(nb+1);//nouvelle note = (note en cours*nb note + note)/(note en cours + 1)
+		this.note = (this.note*nb + note)/(nb+1);//nouvelle note = (note en cours*nb note + note)/(note en cours + 1)
 
 		//test de l'ajout
 		if(nb == reviews.size() + 1)
