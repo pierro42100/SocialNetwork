@@ -14,7 +14,6 @@ import exception.NotMember;
  * @author J. Tiron, P. Chovelon
  * @date avril 2015
  * @version V1.0
- * bloublou
  */
 
 public class TestsReviewItemFilm {
