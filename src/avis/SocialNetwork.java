@@ -1,4 +1,4 @@
- package avis;
+package avis;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -299,9 +299,9 @@ public class SocialNetwork {
 		{
 
 			if(!password.equals(member.getPassword()))
-					{
+			{
 				throw new NotMember("les identifiants sont incorrects 1");
-					}
+			}
 		}
 		else
 		{
@@ -533,7 +533,6 @@ public class SocialNetwork {
 
 		}
 
-
 		return newNote;
 	}
 
@@ -572,30 +571,7 @@ public class SocialNetwork {
 		return null; //retourne null si l'item n'existe pas
 	}
 
-	/**
-	 * Obtenir une représentation textuelle du <i>SocialNetwork</i>.
-	 *
-	 * @return la chaîne de caractères représentation textuelle du <i>SocialNetwork</i>
-	 */
-	public String toString() {
-		String phrase;
-		phrase = "\n Liste des membres : \n";
-		for(Member m : members)
-		{
-			phrase+= m.toString();
-		}
 
-
-		phrase += "\n Liste des items : \n";
-		for(Item i : items)
-		{
-			phrase+= i.toString() + "\n";
-		}
-
-
-
-		return phrase;
-	}
 
 
 	/**
@@ -620,6 +596,95 @@ public class SocialNetwork {
 	}
 
 
+	/**
+	 * reviewOpinion
+	 * 
+	 */
+	public void reviewOpinion(String pseudo, String password, String titre, String pseudoMember, boolean BookOrNot, float karma) throws BadEntry, NotMember{
 
+		//Test de validité du pseudo 
+		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le pseudo n'est pas correct");
+		}
+		//Test de validité du password
+		if(password==null || password.trim().length()<4){
+			throw new BadEntry("Le password n'est pas correct");
+		}
+		//Test de validité du titre
+		if(titre==null || titre.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le titre n'est pas correct");
+		}
+		//Test de validité du pseudoMember
+		if(pseudoMember==null || pseudoMember.replaceAll(" ", "").length()<1){
+			throw new BadEntry("Le pseudo du member n'est pas correct");
+		}
+		//Test de validité du karma
+		if(karma > 5.0 || karma < 0.0)//Si pas comprise entre 0.0 et 5.0
+		{
+			throw new BadEntry("Le karma n'est pas correcte");
+		}
+		//Test d'existence du membre
+		Member member;
+		member = findMember(pseudo);
+		if(member != null)
+		{
+
+			if(!password.equals(member.getPassword())){
+				throw new NotMember("les identifiants sont incorrects ");
+			}
+
+		}
+		else
+		{
+			throw new NotMember("les identifiants sont incorrects ");
+		}
+		
+		//Test d'existence du membre
+		Member pMember;
+		pMember = findMember(pseudoMember);
+		if(pMember != null)
+		{
+
+			if(!password.equals(pMember.getPassword())){
+				throw new NotMember("les identifiants sont incorrects ");
+			}
+
+		}
+		else
+		{
+			throw new NotMember("les identifiants sont incorrects ");
+		}
+
+		//Test du type d'Item
+		
+		
+
+
+	}
+
+	/**
+	 * Obtenir une représentation textuelle du <i>SocialNetwork</i>.
+	 *
+	 * @return la chaîne de caractères représentation textuelle du <i>SocialNetwork</i>
+	 */
+	public String toString() {
+		String phrase;
+		phrase = "\n Liste des membres : \n";
+		for(Member m : members)
+		{
+			phrase+= m.toString();
+		}
+
+
+		phrase += "\n Liste des items : \n";
+		for(Item i : items)
+		{
+			phrase+= i.toString() + "\n";
+		}
+
+
+
+		return phrase;
+	}
 
 }

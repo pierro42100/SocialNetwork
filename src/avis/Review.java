@@ -39,18 +39,6 @@ public class Review {
 	}
 
 
-	/**
-	 * Obtenir une représentation textuelle du <i>Review</i>.
-	 * 
-	 * @return la chaîne de caractères représentation textuelle du <i>Review</i> 
-	 */
-	public String toString(){
-		String phrase;
-		phrase = "---"+pseudo+"---\n";
-		phrase+= "---"+note+"---\n";
-		phrase+= comment;
-		return phrase;	
-	}
 
 	/**
 	 * Obtenir le pseudo du <i>Review></i>
@@ -89,5 +77,18 @@ public class Review {
 	}
 
 
+
+	/**
+	 * Obtenir une représentation textuelle du <i>Review</i>.
+	 * 
+	 * @return la chaîne de caractères représentation textuelle du <i>Review</i> 
+	 */
+	public String toString(){
+		String phrase;
+		phrase = "---"+pseudo+"---\n";
+		phrase+= "---"+note+"---\n";
+		phrase+= comment;
+		return phrase;	
+	}
 
 }
