@@ -570,6 +570,8 @@ public class IHM {
 			
 			sn.addItemFilm("Paul", "paul", "La grande vadrouille", "comique", "Gérard Oury", "Gérard Oury", 132);
 			sn.addItemFilm("Paul", "paul", "Avengers", "historique", "marvel", "Julien", 132);
+			sn.addItemFilm("Alice", "alice", "OuiOui", "enfant", "disney", "Julien", 132);
+			
 			
 			sn.addItemBook("Paul", "paul", "La Bible", "religion", "plusieurs auteurs", 2000);
 			sn.addItemBook("Paul", "paul", "L'informaticien", "revue", "Henri Verdier", 200);
