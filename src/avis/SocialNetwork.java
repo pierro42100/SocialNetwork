@@ -657,7 +657,7 @@ public class SocialNetwork {
 		}
 		
 		//Si tous les paramêtres sont bons :
-		pMember;  //On note le membre
+		pMember.addKarma(karma);  //On note le membre
 
 
 	}

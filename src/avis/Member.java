@@ -20,7 +20,12 @@ public class Member {
 	/**
 	 * @uml.property name="karma"
 	 */
-	private float karma;
+	private float karma = 2.5f;
+	
+	/**
+	 * @uml.property name="nbKarma"
+	 */
+	private int nbKarma = 1;
 	
 	/**
 	 * @uml.property  name="profil"
@@ -59,6 +64,20 @@ public class Member {
 	
 		return this.password;
 	}
+	
+	/**
+	 * Permet d'ajouter un note de karma au membre
+	 * Le karma sera mise à jour en faisant une moyenne. 
+	 * Pour le moment, il n'est pas possible de modifier le karma ajouté avant
+	 */
+	public void addKarma(float newKarma)
+	{
+		
+		this.karma= ((karma*nbKarma)+newKarma)/(nbKarma+1);
+		nbKarma++;
+		
+	}
+	
 	
 	/**
 	 * Obtenir une représentation textuelle du <i>Member</i>
