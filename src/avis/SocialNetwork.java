@@ -619,9 +619,9 @@ public class SocialNetwork {
 			throw new BadEntry("Le pseudo du member n'est pas correct");
 		}
 		//Test de validité du karma
-		if(karma > 5.0 || karma < 0.0)//Si pas comprise entre 0.0 et 5.0
+		if(karma > 5.0 || karma < 0.0)//Si pas compris entre 0.0 et 5.0
 		{
-			throw new BadEntry("Le karma n'est pas correcte");
+			throw new BadEntry("Le karma n'est pas correct");
 		}
 		//Test d'existence du membre
 		Member member;
@@ -636,28 +636,28 @@ public class SocialNetwork {
 		}
 		else
 		{
-			throw new NotMember("les identifiants sont incorrects ");
+			throw new NotMember("les identifiants sont incorrects");
 		}
 		
-		//Test d'existence du membre
+		//Test d'existence du membre qu'on veut noter
 		Member pMember;
 		pMember = findMember(pseudoMember);
-		if(pMember != null)
+		if(pMember == null)
 		{
-
-			if(!password.equals(pMember.getPassword())){
-				throw new NotMember("les identifiants sont incorrects ");
-			}
-
+			throw new NotMember("Ce membre n'existe pas");
 		}
-		else
-		{
-			throw new NotMember("les identifiants sont incorrects ");
-		}
-
+		//Ici on est certains que le membre qui souhaite noter existe et que le membre qui doit être noté existe aussi
+		
 		//Test du type d'Item
+		Item i;
+		i = findItem(titre, BookOrNot);
+		if(i == null)//Si l'Item n'existe pas
+		{
+			throw new BadEntry("Aucun Item ne correspond au titre demandé");
+		}
 		
-		
+		//Si tous les paramêtres sont bons :
+		pMember;  //On note le membre
 
 
 	}

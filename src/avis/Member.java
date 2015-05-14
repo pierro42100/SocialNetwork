@@ -17,7 +17,11 @@ public class Member {
 	 */
 	private String password;
 	
-
+	/**
+	 * @uml.property name="karma"
+	 */
+	private float karma;
+	
 	/**
 	 * @uml.property  name="profil"
 	 */
