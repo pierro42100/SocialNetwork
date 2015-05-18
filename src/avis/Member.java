@@ -78,6 +78,9 @@ public class Member {
 		
 	}
 	
+	public float getKarma(){
+		return this.karma;
+	}
 	
 	/**
 	 * Obtenir une représentation textuelle du <i>Member</i>
@@ -86,7 +89,7 @@ public class Member {
 	 */
 	public String toString(){
 		String phrase;
-		phrase = "Pseudo "+pseudo+".Password :"+password+". Profil :"+profil +"\n";
+		phrase = "Pseudo "+pseudo+"("+karma+"). Password :"+password+". Profil :"+profil +"\n";
 		return phrase;
 		
 	}

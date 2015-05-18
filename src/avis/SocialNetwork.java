@@ -600,7 +600,7 @@ public class SocialNetwork {
 	 * reviewOpinion
 	 * 
 	 */
-	public void reviewOpinion(String pseudo, String password, String titre, String pseudoMember, boolean BookOrNot, float karma) throws BadEntry, NotMember{
+	public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember{
 
 		//Test de validité du pseudo 
 		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
@@ -653,13 +653,13 @@ public class SocialNetwork {
 		i = findItem(titre, BookOrNot);
 		if(i == null)//Si l'Item n'existe pas
 		{
-			throw new BadEntry("Aucun Item ne correspond au titre demandé");
+			throw new NotItem("Aucun Item ne correspond au titre demandé");
 		}
 		
 		//Si tous les paramêtres sont bons :
 		pMember.addKarma(karma);  //On note le membre
-
-
+		 
+		return pMember.getKarma();
 	}
 
 	/**
