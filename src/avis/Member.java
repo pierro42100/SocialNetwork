@@ -78,6 +78,10 @@ public class Member {
 		
 	}
 	
+	/**
+	 * Permet de récupérer le karma d'un Member
+	 */
+
 	public float getKarma(){
 		return this.karma;
 	}

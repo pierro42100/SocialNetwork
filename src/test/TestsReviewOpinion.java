@@ -227,6 +227,9 @@ public class TestsReviewOpinion {
 		nbTests++;
 		nbErreurs += reviewOpinionBadEntryTest(sn, "Paul", "paul", "up", " ", 3.0f, false, "7.10", "L'ajout d'une opinion avec un membre dont le pseudo ne contient pas un caractere, autre que des espaces,");
 
+		nbTests++;
+		nbErreurs += reviewOpinionBadEntryTest(sn, "Paul", "paul", "up", "Paul", 3.0f, false, "7.11", "L'ajout d'une opinion par un membre sur lui même à fonctionné");
+
 		// <=> fiche numéro 2
 		// tentative d'ajout d'une opinion d'un commentaire avec entrées "correctes"
 		// mais avec les levées d'exceptions NotMember et NotItem

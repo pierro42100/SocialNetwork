@@ -602,7 +602,8 @@ public class SocialNetwork {
 	 */
 	public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember{
 
-		//Test de validité du pseudo 
+
+		//Test de la validité du pseudo 1
 		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
 			throw new BadEntry("Le pseudo n'est pas correct");
 		}
@@ -617,6 +618,10 @@ public class SocialNetwork {
 		//Test de validité du pseudoMember
 		if(pseudoMember==null || pseudoMember.replaceAll(" ", "").length()<1){
 			throw new BadEntry("Le pseudo du member n'est pas correct");
+		}
+		//Test de la validité du pseudo 2, : les pseudo doivent être différents
+		if(pseudo.equalsIgnoreCase(pseudoMember)){
+			throw new BadEntry("Le pseudo n'est pas correct");
 		}
 		//Test de validité du karma
 		if(karma > 5.0 || karma < 0.0)//Si pas compris entre 0.0 et 5.0
@@ -638,7 +643,7 @@ public class SocialNetwork {
 		{
 			throw new NotMember("les identifiants sont incorrects");
 		}
-		
+
 		//Test d'existence du membre qu'on veut noter
 		Member pMember;
 		pMember = findMember(pseudoMember);
@@ -647,7 +652,7 @@ public class SocialNetwork {
 			throw new NotMember("Ce membre n'existe pas");
 		}
 		//Ici on est certains que le membre qui souhaite noter existe et que le membre qui doit être noté existe aussi
-		
+
 		//Test du type d'Item
 		Item i;
 		i = findItem(titre, BookOrNot);
@@ -655,10 +660,10 @@ public class SocialNetwork {
 		{
 			throw new NotItem("Aucun Item ne correspond au titre demandé");
 		}
-		
+
 		//Si tous les paramêtres sont bons :
 		pMember.addKarma(karma);  //On note le membre
-		 
+
 		return pMember.getKarma();
 	}
 
