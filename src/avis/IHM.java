@@ -7,7 +7,10 @@ import ihm.JScrollPaneTexte;
 
 import javax.swing.*;
 
-
+import exception.BadEntry;
+import exception.ItemFilmAlreadyExists;
+import exception.MemberAlreadyExists;
+import exception.NotMember;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -562,7 +565,7 @@ public class IHM {
 
 			IHM ihm = new IHM(); 
 			ihm.setMetier(sn);
-
+			/*CODE DE BASE
 			// ajout de 3 membres avec entrées "correctes"
 			sn.addMember("Paul", "paul", "lecteur impulsif");
 			sn.addMember("Antoine", "antoine", "grand amoureux de littérature");
@@ -575,7 +578,49 @@ public class IHM {
 			
 			sn.addItemBook("Paul", "paul", "La Bible", "religion", "plusieurs auteurs", 2000);
 			sn.addItemBook("Paul", "paul", "L'informaticien", "revue", "Henri Verdier", 200);
+			*/
+
+			String pseudo = "Pseudo";
+			String password = "pseudo";
+			String profil = "Membre numéro ";
+
+			for(int i=0; i<500 ; i++)
+			{
+				try{
+					sn.addMember(pseudo+i , password+i, profil+i);
+				}
+				catch(BadEntry e)
+				{
+					System.out.println("BadEntry");
+				}
+				catch(MemberAlreadyExists e)
+				{
+					System.out.println("MemberAlreadyExists");
+				}
+				
+			}		
 			
+			
+			for(int i=0; i<5000 ; i++)
+			{
+				try{
+					sn.addItemFilm("Pseudo0", "pseudo0", "FastAndFurious"+i, "Action", "Realisateur", "Scenariste", 120);
+				}
+				catch(BadEntry e)
+				{
+					System.out.println("BadEntry");
+				}
+				catch(NotMember e)
+				{
+					System.out.println("NotMember");
+				}
+				catch(ItemFilmAlreadyExists e)
+				{
+					System.out.println("ItemFilmAlreadyExists");
+				}
+				
+				
+			}
 			
 		}
 		catch (Exception e) {

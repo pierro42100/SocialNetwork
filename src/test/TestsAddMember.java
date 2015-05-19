@@ -99,7 +99,6 @@ public class TestsAddMember {
 
 		System.out.println("Tests  ajouter des membres au réseau social  ");
 
-
 		SocialNetwork sn = new SocialNetwork();
 
 		// tests de addMember

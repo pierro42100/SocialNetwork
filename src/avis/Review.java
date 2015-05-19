@@ -85,9 +85,7 @@ public class Review {
 	 */
 	public String toString(){
 		String phrase;
-		phrase = "---"+pseudo+"---\n";
-		phrase+= "---"+note+"---\n";
-		phrase+= comment;
+		phrase = pseudo+"/"+ note+"/"+  comment +"\n";
 		return phrase;	
 	}
 

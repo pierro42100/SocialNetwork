@@ -89,7 +89,7 @@ public class Member {
 	 */
 	public String toString(){
 		String phrase;
-		phrase = "Pseudo "+pseudo+"("+karma+"). Password :"+password+". Profil :"+profil +"\n";
+		phrase = pseudo+"("+karma+")./"+password+"/"+profil +"\n";
 		return phrase;
 		
 	}

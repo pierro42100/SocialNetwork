@@ -54,10 +54,8 @@ public class Book extends Item {
 	@Override
 	public String toString(){
 		String phrase;
-		phrase = title + " est un livre écrit par " + author + ". Le type du livre est : "+ type +". Il contient "+ pageNumber + " pages ";
-		phrase += "\n note du livre :" + this.note;
-		phrase += "\n Commentaires du livre :\n";
-		
+		phrase = title + "/" + author + "/"+ type +"/"+ pageNumber + "/" + this.note + "/";
+	
 		//On parcours tous les reviews du livre
 		for(Review r : reviews)
 		{

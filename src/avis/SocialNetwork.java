@@ -669,20 +669,18 @@ public class SocialNetwork {
 	 */
 	public String toString() {
 		String phrase;
-		phrase = "\n Liste des membres : \n";
+		phrase = "Membres :\n";
 		for(Member m : members)
 		{
 			phrase+= m.toString();
 		}
 
 
-		phrase += "\n Liste des items : \n";
+		phrase += "Items :\n";
 		for(Item i : items)
 		{
 			phrase+= i.toString() + "\n";
 		}
-
-
 
 		return phrase;
 	}

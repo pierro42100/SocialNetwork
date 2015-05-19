@@ -1,7 +1,7 @@
 package test;
 
 import avis.SocialNetwork;
-
+import avis.Member;
 import test.TestsAddItemFilm;
 
 import exception.BadEntry;
@@ -120,7 +120,7 @@ public class TestsReviewOpinion {
 		try{
 			karmaRetourne = sn.reviewOpinion(pseudo, password, titre, pseudoMember, karma, bookOrNot);		
 
-			if(karmaRetourne == karma) //si le karma ajouté correspond à la moyenne
+			if(karmaRetourne != karma) //si le karma ajouté correspond à la moyenne
 			{
 				return 0 ;
 			}
@@ -240,7 +240,7 @@ public class TestsReviewOpinion {
 
 
 		nbTests++;
-		nbErreurs += reviewOpinionOKTest(sn, "Paul", "paul", "up", "Pierrick", 2.5f, false, "8.3", "L'ajout d'une opinion avec des paramêtres corrects n'a pas fonctionné");
+		nbErreurs += reviewOpinionOKTest(sn, "Paul", "paul", "up", "Pierrick", 1.0f, false, "8.3", "L'ajout d'une opinion avec des paramêtres corrects n'a pas fonctionné");
 		
 		nbTests++;
 		nbErreurs += reviewOpinionNotItemTest(sn, "Paul", "paul", "down", "Pierrick", 2.5f, false, "8.4", "L'ajout d'une opinion avec un titre de film qui n'existe pas a fonctionné");
@@ -260,6 +260,7 @@ public class TestsReviewOpinion {
 			args[0] = "" + nbTests;
 			args[1] = "" + nbErreurs;
 		}
+		
 	}
 }
 
