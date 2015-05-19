@@ -425,14 +425,14 @@ public class SocialNetwork {
 		{
 
 			//Dans le cas où aucun commentaire n'existe pas pour ce pseudo
-			f.addNewReview(commentaire, note, pseudo);
+			f.addNewReview(commentaire, note, pseudo, member.getKarma());
 			newNote = f.getNote();
 
 		}
 		else//sinon, dans le cas où le commentaire existe déjà
 		{
 
-			newNote = f.updateReview(r, commentaire, note);
+			newNote = f.updateReview(r, commentaire, note, member.getKarma());
 
 		}
 
@@ -523,13 +523,13 @@ public class SocialNetwork {
 		if(r == null)
 		{
 			//Dans le cas où aucun commentaire n'existe pas pour ce pseudo
-			b.addNewReview(commentaire, note, pseudo);
+			b.addNewReview(commentaire, note, pseudo, member.getKarma());
 			newNote = b.getNote();
 		}
 		else//sinon, dans le cas où le commentaire existe déjà
 		{
 
-			newNote = b.updateReview(r, commentaire, note);
+			newNote = b.updateReview(r, commentaire, note, member.getKarma());
 
 		}
 

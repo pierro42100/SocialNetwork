@@ -14,6 +14,12 @@ public class Review {
 	 * @uml.property  name="note"
 	 */
 	private float note = 0.0f;
+	
+	/**
+	 * @uml.property  name="karmaMembre"
+	 * Correspond au karma du membre lors de l'ajout du commentaire
+	 */
+	private float karmaMembre = 0.0f; 
 
 	/**
 	 * @uml.property  name="comment"
@@ -31,11 +37,12 @@ public class Review {
 	 * 
 	 */
 
-	public Review(String comment, float note, String pseudo, Item item){
+	public Review(String comment, float note, String pseudo, Item item, float karmaMembre){
 		this.pseudo = pseudo;
 		this.note = note;
 		this.comment = comment;
 		this.item = item;
+		this.karmaMembre = karmaMembre;
 	}
 
 
@@ -56,6 +63,15 @@ public class Review {
 	public float getNote(){
 
 		return this.note;
+	}
+	
+	/**
+	 * Obtenir le karmaMambre du <i>Review></i>
+	 * @return le karmaMembre
+	 */
+	public int getKarmaMembre(){
+
+		return (int)(this.karmaMembre) ;
 	}
 
 	/**
@@ -85,7 +101,7 @@ public class Review {
 	 */
 	public String toString(){
 		String phrase;
-		phrase = pseudo+"/"+ note+"/"+  comment +"\n";
+		phrase = pseudo+"/"+ note+"/"+ karmaMembre +"/"+  comment +"\n";
 		return phrase;	
 	}
 

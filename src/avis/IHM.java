@@ -578,8 +578,9 @@ public class IHM {
 			
 			sn.addItemBook("Paul", "paul", "La Bible", "religion", "plusieurs auteurs", 2000);
 			sn.addItemBook("Paul", "paul", "L'informaticien", "revue", "Henri Verdier", 200);
+			sn.reviewItemBook("Paul", "paul", "La Bible", 3.0f,"fee");
 			
-			
+			sn.reviewOpinion("Alice", "alice", "La Bible", "Paul", 0.0f, true);
 		}
 		catch (Exception e) {
 			System.out.println("Exception inattendue : " + e);

@@ -54,13 +54,19 @@ public abstract class Item {
 	 * Méthode qui ajoute un nouveau commentaire <i>Review</i> à un <i>Item</i>
 	 * @return un booléen qui indique si le <i>Review</i> a bien été ajouté
 	 */
-	public boolean addNewReview(String comment, float note, String pseudo){
-		int nb = reviews.size(); //taille actuelle de la liste
-		Review r = new Review(comment, note, pseudo, this);
+	public boolean addNewReview(String comment, float note, String pseudo, float karma){
+		int nb = 0; //taille actuelle de la liste qui correspond aux karmas
+		
+		for(Review r : reviews)
+		{
+			nb += r.getKarmaMembre(); 
+		}
+		
+		Review r = new Review(comment, note, pseudo, this, karma);
 		this.reviews.add(r);//ajout de la nouvelle review
 
 		//Mise à jour de la note
-		this.note = (this.note*nb + note)/(nb+1);//nouvelle note = (note en cours*nb note + note)/(note en cours + 1)
+		this.note = (this.note*nb + note*(int)karma)/(nb+(int)karma);//nouvelle note = (note en cours*nb note + note)/(note en cours + 1)
 
 		//test de l'ajout
 		if(nb == reviews.size() + 1)
@@ -78,7 +84,7 @@ public abstract class Item {
 	 * Update la note du Review passé en paramêtre
 	 * 
 	 */
-	public float updateReview(Review r, String comment, float note){
+	public float updateReview(Review r, String comment, float note, float karma){
 			
 		if(this.reviews.size() != 1)
 		{
