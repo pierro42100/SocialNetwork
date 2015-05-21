@@ -10,6 +10,7 @@ import exception.ItemBookAlreadyExists;
 import exception.MemberAlreadyExists;
 import exception.NotItem;
 import exception.NotMember;
+import exception.SameMember;
 
 
 /**
@@ -48,14 +49,14 @@ public class SocialNetwork {
 
 
 	/**
-	 * @uml.property  name="members"
-	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" inverse="socialNetwork:avis.Member"
+	 * "members"
+	 * liste des membres du social network
 	 */
 	private LinkedList<Member> members;
 
 	/**
-	 * @uml.property  name="items"
-	 * @uml.associationEnd  multiplicity="(0 -1)" ordering="true" inverse="socialNetwork:avis.Item"
+	 * "items"
+	 * liste des items du social network
 	 */
 	private LinkedList<Item> items;
 
@@ -597,10 +598,30 @@ public class SocialNetwork {
 
 
 	/**
-	 * reviewOpinion
-	 * 
+	 * Donner son opinion sur un membre.
+	 * Ajoute l'opinion sur membre par rapport à un <i>Item</i> du <i>SocialNetwork</i>
+	 *
+	 * @param pseudo pseudo du membre émettant l'opinion
+	 * @param password son mot de passe
+	 * @param pseudoMember du membre qui va être noté
+	 * @param titre titre de l'item
+	 * @param karma note à ajouter
+	 * @param BookOrNot un booleen qui indique si c'est le l'opinion doit se faire sur un avis d'un livre ou d'un film 
+	 *
+	 * @throws BadEntry :
+	 * <ul>
+	 *  <li>  si le pseudo n'est pas instancié ou a moins de 1 caractère autre que des espaces .  </li>
+	 *  <li>  si le password n'est pas instancié ou a moins de 4 caractères autres que des leadings or trailing blanks. </li>
+	 *  <li>  si le titre n'est pas instancié ou a moins de 1 caractère autre que des espaces.  </li>
+	 *  <li>  si la note n'est pas comprise entre 0.0 et 5.0. </li>
+	 *  <li>  si le commentaire n'est pas instancié. </li>
+	 * </ul><br>
+	 * @throws NotMember : si le pseudo n'est pas celui d'un membre ou si le pseudo et le password ne correspondent pas, ou si le membre que l'on veut noter n'existe pas
+	 * @throws NotItem : si le titre n'est pas le titre d'un item
+	 * @throws SameMembre : si le pseudo est le même que le pseudo du membre à noter
+	 * @return le nouveau karma du membre
 	 */
-	public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember{
+	public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember, SameMember{
 
 
 		//Test de la validité du pseudo 1
@@ -621,7 +642,7 @@ public class SocialNetwork {
 		}
 		//Test de la validité du pseudo 2, : les pseudo doivent être différents
 		if(pseudo.equalsIgnoreCase(pseudoMember)){
-			throw new BadEntry("Le pseudo n'est pas correct");
+			throw new SameMember("Le pseudo est le même");
 		}
 		//Test de validité du karma
 		if(karma > 5.0 || karma < 0.0)//Si pas compris entre 0.0 et 5.0

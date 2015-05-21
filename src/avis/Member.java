@@ -5,30 +5,35 @@ package avis;
  * @uml.dependency   supplier="avis.C"
  * @uml.dependency   supplier="avis.ConnectedUser"
  */
+
+/**
+ * La classe <i>Member</i> est la classe qui correspond à un membre du <i>SocialNetwork</i>.
+ *
+ */
 public class Member {
 
 	/** 
-	 * @uml.property name="pseudo"
+	 * pseudo
 	 */
 	private String pseudo;
 
 	/** 
-	 * @uml.property name="password"
+	 * "password"
 	 */
 	private String password;
 	
 	/**
-	 * @uml.property name="karma"
+	 *   name="karma"
 	 */
 	private float karma = 2.5f;
 	
 	/**
-	 * @uml.property name="nbKarma"
+	 *   name="nbKarma"
 	 */
 	private int nbKarma = 1;
 	
 	/**
-	 * @uml.property  name="profil"
+	 *    name="profil"
 	 */
 	private String profil;
 	
@@ -68,7 +73,7 @@ public class Member {
 	/**
 	 * Permet d'ajouter un note de karma au membre
 	 * Le karma sera mise à jour en faisant une moyenne. 
-	 * Pour le moment, il n'est pas possible de modifier le karma ajouté avant
+	 * @param newKarma : le nouveau karma du membre
 	 */
 	public void addKarma(float newKarma)
 	{
@@ -80,6 +85,7 @@ public class Member {
 	
 	/**
 	 * Permet de récupérer le karma d'un Member
+	 * @return : karma
 	 */
 
 	public float getKarma(){

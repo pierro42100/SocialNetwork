@@ -10,6 +10,7 @@ import exception.ItemBookAlreadyExists;
 import exception.MemberAlreadyExists;
 import exception.NotItem;
 import exception.NotMember;
+import exception.SameMember;
 /** 
  * @author J. Tiron, P. Chovelon
  * @date avril 2015
@@ -53,7 +54,7 @@ public class TestsReviewOpinion {
 		//(levée de NotMember et l'opinion n'est pas ajouté)
 		//Si c'est le cas, rien n'est fait
 		//sinon, affiche le message d'erreur passé en paramètre
-		
+
 		float karmaRetourne = 0.0f;
 
 		try{
@@ -86,7 +87,7 @@ public class TestsReviewOpinion {
 		//si c'est le cas rien n'est fait,
 		//sinon affichage du message d'erreur passé en paramêtre
 		float karmaRetourne = 0.0f;
-		
+
 		try{
 			karmaRetourne = sn.reviewOpinion(pseudo, password, titre, pseudoMember, karma, bookOrNot);		
 			System.out.println ("Test " + idTest + " : " + messErreur);
@@ -96,8 +97,8 @@ public class TestsReviewOpinion {
 			//si le karma retourné est égal au seul karma rajouté --> pas normale : cela veut dire que le karma a été modifié 
 			if(karmaRetourne == karma)
 			{
-			System.out.println("Test " + idTest + " : l'exception NotItem bien été levée mais le karma semble avoir été modifié");				
-			return 1;
+				System.out.println("Test " + idTest + " : l'exception NotItem bien été levée mais le karma semble avoir été modifié");				
+				return 1;
 			}
 			else
 			{ //si le karma retourné n'est pas égal au seul karma rajouté : OK
@@ -128,7 +129,7 @@ public class TestsReviewOpinion {
 			{
 				System.out.println ("Test " + idTest + " : " + messErreur);
 				return 1;
-			
+
 			}
 
 		}
@@ -137,6 +138,42 @@ public class TestsReviewOpinion {
 			e.printStackTrace();
 			return 1;
 		}
+
+	}
+
+	public static int reviewOpinionSameMemberTest(SocialNetwork sn, String pseudo, String password, String titre, String pseudoMember, float karma, boolean bookOrNot, String idTest, String messErreur){
+		//vérifie le bon fonctionnement de la méthode dans le cas ou les paramêtres passés sont corrects
+		//c'est à dire que l'opinion est bien prise en compte dans le membre
+		//vérifie que le titre est bien le titre d'un film ou d'un livre et la levée d'exception NotItem
+		//si c'est le cas rien n'est fait,
+		//sinon affichage du message d'erreur passé en paramêtre
+		float karmaRetourne = 0.0f;
+
+		try{
+			karmaRetourne = sn.reviewOpinion(pseudo, password, titre, pseudoMember, karma, bookOrNot);		
+			System.out.println ("Test " + idTest + " : " + messErreur);
+			return 1;
+		}
+		catch (SameMember e) {
+			//si le karma retourné est égal au seul karma rajouté --> pas normale : cela veut dire que le karma a été modifié 
+			if(karmaRetourne == karma)
+			{
+				System.out.println("Test " + idTest + " : l'exception SameMember bien été levée mais le karma semble avoir été modifié");				
+				return 1;
+			}
+			else
+			{ //si le karma retourné n'est pas égal au seul karma rajouté : OK
+				return 0;
+			}
+
+		}
+		catch (Exception e)
+		{
+			System.out.println ("Test " + idTest + " : exception non prévue. " + e); 
+			e.printStackTrace();
+			return 1;
+		}
+
 
 	}
 
@@ -162,7 +199,7 @@ public class TestsReviewOpinion {
 		{
 			System.out.println("TEST AJOUT NOUVEAU MEMBRE BadEntry: Impossible");
 		}
-		
+
 		try{
 			sn.addMember("Pierrick", "pierrick", "lit les livres de François");
 		}
@@ -174,7 +211,7 @@ public class TestsReviewOpinion {
 		{
 			System.out.println("TEST AJOUT NOUVEAU MEMBRE BadEntry: Impossible");
 		}
-		
+
 
 
 		//Il faut ajouter un film pour tester la méthode d'après	
@@ -227,9 +264,6 @@ public class TestsReviewOpinion {
 		nbTests++;
 		nbErreurs += reviewOpinionBadEntryTest(sn, "Paul", "paul", "up", " ", 3.0f, false, "7.10", "L'ajout d'une opinion avec un membre dont le pseudo ne contient pas un caractere, autre que des espaces,");
 
-		nbTests++;
-		nbErreurs += reviewOpinionBadEntryTest(sn, "Paul", "paul", "up", "Paul", 3.0f, false, "7.11", "L'ajout d'une opinion par un membre sur lui même à fonctionné");
-
 		// <=> fiche numéro 2
 		// tentative d'ajout d'une opinion d'un commentaire avec entrées "correctes"
 		// mais avec les levées d'exceptions NotMember et NotItem
@@ -244,12 +278,15 @@ public class TestsReviewOpinion {
 
 		nbTests++;
 		nbErreurs += reviewOpinionOKTest(sn, "Paul", "paul", "up", "Pierrick", 1.0f, false, "8.3", "L'ajout d'une opinion avec des paramêtres corrects n'a pas fonctionné");
-		
-		nbTests++;
-		nbErreurs += reviewOpinionNotItemTest(sn, "Paul", "paul", "down", "Pierrick", 2.5f, false, "8.4", "L'ajout d'une opinion avec un titre de film qui n'existe pas a fonctionné");
 
 		nbTests++;
-		nbErreurs += reviewOpinionNotItemTest(sn, "Paul", "paul", "up", "Pierrick", 2.5f, true, "8.5", "L'ajout d'une opinion avec un titre de film qui n'existe pas a fonctionné");
+		nbErreurs += reviewOpinionSameMemberTest(sn, "Paul", "paul", "up", "Paul", 1.0f, false, "8.4", "L'ajout d'une opinion avec le même pseudo a fonctionné");
+
+		nbTests++;
+		nbErreurs += reviewOpinionNotItemTest(sn, "Paul", "paul", "down", "Pierrick", 2.5f, false, "8.5", "L'ajout d'une opinion avec un titre de film qui n'existe pas a fonctionné");
+
+		nbTests++;
+		nbErreurs += reviewOpinionNotItemTest(sn, "Paul", "paul", "up", "Pierrick", 2.5f, true, "8.6", "L'ajout d'une opinion avec un titre de film qui n'existe pas a fonctionné");
 
 
 		// bilan du test de reviewOpinion
@@ -263,7 +300,7 @@ public class TestsReviewOpinion {
 			args[0] = "" + nbTests;
 			args[1] = "" + nbErreurs;
 		}
-		
+
 	}
 }
 

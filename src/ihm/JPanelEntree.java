@@ -46,7 +46,7 @@ public class JPanelEntree  extends JPanel {
 	}
 	
 	/**
-	 * @return
+	 * @return entree
 	 * @uml.property  name="entree"
 	 */
 	public String getEntree() {

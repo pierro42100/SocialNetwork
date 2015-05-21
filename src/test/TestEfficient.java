@@ -9,13 +9,12 @@ import exception.ItemFilmAlreadyExists;
 import exception.ItemBookAlreadyExists;
 import exception.NotMember;
 import exception.NotItem;
+import exception.SameMember;
 
 public class TestEfficient {
 
 	public static void main(String[] args) 
 	{
-
-
 
 		//creation d'un SocialNetwork
 		SocialNetwork sn = new SocialNetwork();	
@@ -225,6 +224,10 @@ public class TestEfficient {
 		catch(NotMember e)
 		{
 			System.out.println("NotMember");
+		}
+		catch(SameMember e)
+		{
+			System.out.println("SameMember");
 		}
 		duree = System.nanoTime() - start6;
 		System.out.println("Durée pour ajouter un opinion(karma) à un membre : "+duree/1000000000 + " secondes\n");

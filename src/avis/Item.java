@@ -81,27 +81,35 @@ public abstract class Item {
 	}
 
 	/**
-	 * Update la note du Review passé en paramêtre
+	 * Update la note du Review passée en paramêtre
 	 * 
 	 */
 	public float updateReview(Review r, String comment, float note, float karma){
 			
 		if(this.reviews.size() != 1)
 		{
+			int nb = 0; //nb de karma pour ce review
+			
+			for(Review rev : reviews)
+			{
+				nb += rev.getKarmaMembre(); 
+			}
+			
 			//on récupère la note du review en cours
 			float oldNote = r.getNote();//l'ancienne note du review qui doit être mise à jour
-			//on change la note du review et le commentaire
+			//on récupère le karma du review en cours
+			int oldKarma = r.getKarmaMembre();
+			
+			//on change la note du review et le commentaire et le karma
 			r.setComment(comment);
 			r.setNote(note);//nouvelle note
-			//moyenne avant update
+			r.setKarmaMembre(karma);//nouveau karma de la personne qui update le review
+			
 			float oldMoy = this.note; //ancienne Moyenne(note)
 
-			//
-			//
-
-			float cacheMoy = (oldMoy*(this.reviews.size())-oldNote)/(this.reviews.size()-1); //Moyenne tempo
+			float cacheMoy = (oldMoy*(nb)-oldNote*oldKarma)/(nb-oldKarma); //Moyenne tempo
 			
-			this.note = (cacheMoy*(this.reviews.size()-1)+note)/(this.reviews.size()); //nouvelle Moyenne(note)
+			this.note = (cacheMoy*(nb-oldKarma)+note*(int)karma)/(nb-oldKarma+(int)karma); //nouvelle Moyenne(note)
 			
 			return this.note; //retourne la note mise à jour
 		}
