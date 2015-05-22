@@ -13,27 +13,27 @@ package avis;
 public class Member {
 
 	/** 
-	 * pseudo
+	 * @uml.property name ="pseudo"
 	 */
 	private String pseudo;
 
 	/** 
-	 * "password"
+	 * @uml.property name = "password"
 	 */
 	private String password;
 	
 	/**
-	 *   name="karma"
+	 *  @uml.property name="karma"
 	 */
 	private float karma = 2.5f;
 	
 	/**
-	 *   name="nbKarma"
+	 * @uml.property  name="nbKarma"
 	 */
 	private int nbKarma = 1;
 	
 	/**
-	 *    name="profil"
+	 *  @uml.property  name="profil"
 	 */
 	private String profil;
 	
@@ -77,7 +77,7 @@ public class Member {
 	 */
 	public void addKarma(float newKarma)
 	{
-		
+		//Moyenne du karma
 		this.karma= ((karma*nbKarma)+newKarma)/(nbKarma+1);
 		nbKarma++;
 		
@@ -85,7 +85,7 @@ public class Member {
 	
 	/**
 	 * Permet de récupérer le karma d'un Member
-	 * @return : karma
+	 * @return : le karma du <i>Member</i> (float)
 	 */
 
 	public float getKarma(){

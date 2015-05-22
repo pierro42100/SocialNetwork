@@ -24,12 +24,12 @@ import java.util.LinkedList;
 public class Book extends Item {
 
 	/**
-	 * @uml.property  name="author"
+	 * @uml.property name="author"
 	 */
 	private String author;
 	
 	/**
-	 * @uml.property  name="pageNumber"
+	 * @uml.property name="pageNumber"
 	 */
 	private int pageNumber;
 
@@ -37,7 +37,7 @@ public class Book extends Item {
 	 * constructeur de <i>Book</i> 
 	 */
 	public Book(String title, String type, String author, int pageNumber){
-		
+		//Déclaration d'une liste chaînée de Reviews
 		reviews = new LinkedList<Review>();
 		
 		this.title = title;
@@ -51,6 +51,7 @@ public class Book extends Item {
 	 * 
 	 * @return la chaîne de caractères représentation textuelle du <i>Book</i> 
 	 */
+	
 	@Override
 	public String toString(){
 		String phrase;

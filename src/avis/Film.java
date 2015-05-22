@@ -41,12 +41,11 @@ public class Film extends Item {
 	 */
 	private int duration;
 
-
 	/**
 	 * constructeur de <i>Film</i> 
 	 */
 	public Film(String title, String type, String director, String scenarist, int duration){
-		
+		//Déclaration d'une liste de Reviews
 		reviews = new LinkedList<Review>();
 		
 		this.title= title;
@@ -67,7 +66,7 @@ public class Film extends Item {
 		String phrase;
 		phrase = title + "/" + type + "/" + director + "/"+ scenarist +"/"+ duration +"/" + this.note + "/";
 		
-		//On parcours tous les reviews du film
+		//On parcours tous les reviews du film pour récupérer les infos des reviews
 		for(Review r : reviews)
 		{
 			phrase+= r.toString();

@@ -146,7 +146,7 @@ public class SocialNetwork {
 		{
 			throw new BadEntry("Le pseudo n'est pas correct");
 		}
-
+		//
 		if(password == null || (password.trim()).length() < 4)
 		{
 			throw new BadEntry("Le password n'est pas correct");
@@ -333,17 +333,14 @@ public class SocialNetwork {
 		if(nom == null||nom.trim().length()<1){
 			throw new BadEntry("La recherche n'est pas valide");
 		}
-		LinkedList <String> res = new LinkedList <String>();
+		LinkedList <String> listeRetournee = new LinkedList <String>();
 		for(Item i: items){
 			if(nom.trim().equalsIgnoreCase((i.getTitle().trim()))){
-				res.add(i.toString());
+				listeRetournee.add(i.toString());
 			}
 		}
-		return res;
+		return listeRetournee;
 	}
-
-
-
 
 	/**
 	 * Donner son opinion sur un item film.
@@ -364,6 +361,7 @@ public class SocialNetwork {
 	 *  <li>  si la note n'est pas comprise entre 0.0 et 5.0. </li>
 	 *  <li>  si le commentaire n'est pas instancié. </li>
 	 * </ul><br>
+	 * 
 	 * @throws NotMember : si le pseudo n'est pas celui d'un membre ou si le pseudo et le password ne correspondent pas.
 	 * @throws NotItem : si le titre n'est pas le titre d'un film.
 	 *
@@ -610,19 +608,17 @@ public class SocialNetwork {
 	 *
 	 * @throws BadEntry :
 	 * <ul>
-	 *  <li>  si le pseudo n'est pas instancié ou a moins de 1 caractère autre que des espaces .  </li>
+	 *  <li>  si le pseudo et pseudoMember ne sont pas instanciés ou ont moins de 1 caractère autre que des espaces .  </li>
 	 *  <li>  si le password n'est pas instancié ou a moins de 4 caractères autres que des leadings or trailing blanks. </li>
 	 *  <li>  si le titre n'est pas instancié ou a moins de 1 caractère autre que des espaces.  </li>
-	 *  <li>  si la note n'est pas comprise entre 0.0 et 5.0. </li>
-	 *  <li>  si le commentaire n'est pas instancié. </li>
+	 *  <li>  si le karma n'est pas comprise entre 0.0 et 5.0. </li>
 	 * </ul><br>
 	 * @throws NotMember : si le pseudo n'est pas celui d'un membre ou si le pseudo et le password ne correspondent pas, ou si le membre que l'on veut noter n'existe pas
-	 * @throws NotItem : si le titre n'est pas le titre d'un item
+	 * @throws NotItem : si le titre n'est pas le titre d'un item (Book ou Film)
 	 * @throws SameMembre : si le pseudo est le même que le pseudo du membre à noter
 	 * @return le nouveau karma du membre
 	 */
 	public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember, SameMember{
-
 
 		//Test de la validité du pseudo 1
 		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
@@ -691,7 +687,8 @@ public class SocialNetwork {
 	/**
 	 * Obtenir une représentation textuelle du <i>SocialNetwork</i>.
 	 *
-	 * @return la chaîne de caractères représentation textuelle du <i>SocialNetwork</i>
+	 * @return la chaîne de caractères représentation textuelle du <i>SocialNetwork</i>. 
+	 * Cette chaine est formée en appellant la méthode toString() de chaque <i>Members</i> et <i>Items</i>
 	 */
 	public String toString() {
 		String phrase;

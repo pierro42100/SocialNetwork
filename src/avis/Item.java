@@ -139,11 +139,6 @@ public abstract class Item {
 
 			}	
 		}
-		//for(Review r : reviews)
-		//{
-
-		//}
-
 
 		return null; //else return null
 
@@ -174,7 +169,6 @@ public abstract class Item {
 	 */
 
 	public abstract String toString();
-
 
 
 }
