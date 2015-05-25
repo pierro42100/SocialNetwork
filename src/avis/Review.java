@@ -28,22 +28,10 @@ public class Review {
 	 */
 	private String comment;
 
-	/**
-	 * @uml.property  name="item"
-	 * @uml.associationEnd  multiplicity="(1 1)" inverse="reviews:avis.Item"
-	 */
-	private Item item = null;
-
-	/**
-	 * constructeur de <i>Review</i> 
-	 * 
-	 */
-
-	public Review(String comment, float note, String pseudo, Item item, float karmaMembre){
+	public Review(String comment, float note, String pseudo, float karmaMembre){
 		this.pseudo = pseudo;
 		this.note = note;
 		this.comment = comment;
-		this.item = item;
 		this.karmaMembre = karmaMembre;
 	}
 

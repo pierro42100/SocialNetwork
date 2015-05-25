@@ -62,7 +62,7 @@ public abstract class Item {
 			nb += r.getKarmaMembre(); 
 		}
 		
-		Review r = new Review(comment, note, pseudo, this, karma);
+		Review r = new Review(comment, note, pseudo, karma);
 		this.reviews.add(r);//ajout de la nouvelle review
 
 		//Mise à jour de la note
