@@ -22,3 +22,15 @@
 | $$      | $$\  $$$| $$  | $$| $$  | $$    | $$              
 | $$$$$$$$| $$ \  $$|  $$$$$$/|  $$$$$$/    | $$           /$$
 |________/|__/  \__/ \______/  \______/     |__/          |__/
+
+Signature de la fonction reviewOpinion de SocialNetwork.java :
+- Paramètres :
+	- String pseudo : pseudo du membre qui veut ajouter une opinion
+	- String password : password du membre qui veut ajouter une opinion
+	- String titre : titre de l’item
+	- String pseudoMember : pseudo du membre qui va être noté
+	- float karma : note (karma) qui sera attribué à pseudoMember
+	- boolean BookOrNot : indique quel type d’objet il s’agit : true = Livre, false = Film
+
+public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember, SameMember{}
+
