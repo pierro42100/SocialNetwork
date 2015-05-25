@@ -707,11 +707,9 @@ public class SocialNetwork {
 		member = findMember(pseudo);
 		if(member != null)
 		{
-
 			if(!password.equals(member.getPassword())){
 				throw new NotMember("les identifiants sont incorrects ");
 			}
-
 		}
 		else
 		{
@@ -734,7 +732,11 @@ public class SocialNetwork {
 		{
 			throw new NotItem("Aucun Item ne correspond au titre demandé");
 		}
-
+		if(i.findReview(pseudoMember) == null)//Test pour savoir si le membre a bien commenté l'Item
+		{
+			throw new NotItem("Le membre n'a pas commenté l'item");
+		}
+		
 		//Si tous les paramêtres sont bons :
 		pMember.addKarma(karma);  //On note le membre
 
