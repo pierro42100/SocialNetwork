@@ -119,6 +119,63 @@ public class SocialNetwork {
 		return compteur;
 	}
 
+	/**
+	 * Méthode privée qui test le pseudo passé en paramêtre
+	 * @param string pseudo
+	 * @return un booleen : true si le pseudo est mauvais, false s'il est correct
+	 */
+	private boolean isPseudoBad(String pseudo)
+	{
+		if(pseudo == null || (pseudo.replaceAll(" ", "")).length() < 1){
+			return true;//ça veut dire que le pseudo est mauvais
+		}
+		return false;//ça  veut dire que le pseudo est bon
+
+	}
+	
+	/**
+	 * Méthode privée qui test le password passé en paramêtre
+	 * @param string password
+	 * @return un booleen : true si le password est mauvais, false s'il est correct
+	 */
+	private boolean isPasswordBad(String password)
+	{
+		if(password == null || (password.trim()).length() < 4){
+			return true;//ça veut dire que le password est mauvais
+		}
+		return false;//ça  veut dire que le password est bon
+
+	}
+	
+	/**
+	 * Méthode privée qui test le titre passé en paramêtre
+	 * @param string titre
+	 * @return un booleen : true si le titre est mauvais, false s'il est correct
+	 */
+	private boolean isTitleBad(String titre)
+	{
+		if(titre==null || titre.replaceAll(" ", "").length()<1){
+			return true;//ça veut dire que le password est mauvais
+		}
+		return false;//ça  veut dire que le password est bon
+
+	}
+	
+	/**
+	 * Méthode privée qui test la note pasée en paramêtre
+	 * @param float note
+	 * @return un booleen : true si la note est mauvaise, false si elle est correcte
+	 */
+	private boolean isNoteBad(float note)
+	{
+		if(note > 5.0 || note < 0.0){
+			return true;//ça veut dire que le password est mauvais
+		}
+		return false;//ça  veut dire que le password est bon
+
+	}
+	
+	
 
 
 	/**
@@ -141,17 +198,17 @@ public class SocialNetwork {
 	public void addMember(String pseudo, String password, String profil) throws BadEntry, MemberAlreadyExists  {
 
 		//Tests de vérification des informations
-		//BadEntry
-		if(pseudo == null || (pseudo.replaceAll(" ", "")).length() < 1)
+		//test validité pseudo
+		if(this.isPseudoBad(pseudo))
 		{
 			throw new BadEntry("Le pseudo n'est pas correct");
 		}
-		//
-		if(password == null || (password.trim()).length() < 4)
+		//test validité password
+		if(this.isPasswordBad(password))
 		{
 			throw new BadEntry("Le password n'est pas correct");
 		}
-
+		//test validité profil
 		if(profil == null)
 		{
 			throw new BadEntry("Le profil n'est pas instancié");
@@ -205,15 +262,15 @@ public class SocialNetwork {
 	 */
 	public void addItemFilm(String pseudo, String password, String titre, String genre, String realisateur, String scenariste, int duree) throws BadEntry, NotMember, ItemFilmAlreadyExists {
 		//Test de validité du pseudo
-		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+		if(this.isPseudoBad(pseudo)){
 			throw new BadEntry("Le pseudo n'est pas correct");
 		}
 		//Test de validité du password
-		if(password==null || password.trim().length()<4){
+		if(this.isPasswordBad(password)){
 			throw new BadEntry("Le password n'est pas correct");
 		}
 		//Test de validité du titre
-		if(titre==null || titre.replaceAll(" ", "").length()<1){
+		if(this.isTitleBad(titre)){
 			throw new BadEntry("Le titre n'est pas correct");
 		}
 		//Test de validité du genre et de l'auteur
@@ -274,15 +331,15 @@ public class SocialNetwork {
 	 */
 	public void addItemBook(String pseudo, String password, String titre, String genre, String auteur, int nbPages) throws  BadEntry, NotMember, ItemBookAlreadyExists{
 		//Test de validité du pseudo
-		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+		if(this.isPseudoBad(pseudo)){
 			throw new BadEntry("Le pseudo n'est pas correct");
 		}
 		//Test de validité du password
-		if(password==null || password.trim().length()<4){
+		if(this.isPasswordBad(password)){
 			throw new BadEntry("Le password n'est pas correct");
 		}
 		//Test de validité du titre
-		if(titre==null || titre.replaceAll(" ", "").length()<1){
+		if(this.isTitleBad(titre)){
 			throw new BadEntry("Le titre n'est pas correct");
 		}
 		//Test de validité du nombre de pages
@@ -371,19 +428,19 @@ public class SocialNetwork {
 
 
 		//Test de validité du pseudo
-		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+		if(this.isPseudoBad(pseudo)){
 			throw new BadEntry("Le pseudo n'est pas correct");
 		}
 		//Test de validité du password
-		if(password==null || password.trim().length()<4){
+		if(this.isPasswordBad(password)){
 			throw new BadEntry("Le password n'est pas correct");
 		}
 		//Test de validité du titre
-		if(titre==null || titre.replaceAll(" ", "").length()<1){
+		if(this.isTitleBad(titre)){
 			throw new BadEntry("Le titre n'est pas correct");
 		}
 		//Test de validité de la note
-		if(note > 5.0 || note < 0.0)//Si pas comprise entre 0.0 et 5.0
+		if(this.isNoteBad(note))//Si pas comprise entre 0.0 et 5.0
 		{
 			throw new BadEntry("La note n'est pas correcte");
 		}
@@ -468,19 +525,19 @@ public class SocialNetwork {
 	public float reviewItemBook(String pseudo, String password, String titre, float note, String commentaire) throws BadEntry, NotMember, NotItem {
 
 		//Test de validité du pseudo
-		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+		if(this.isPseudoBad(pseudo)){
 			throw new BadEntry("Le pseudo n'est pas correct");
 		}
 		//Test de validité du password
-		if(password==null || password.trim().length()<4){
+		if(this.isPasswordBad(password)){
 			throw new BadEntry("Le password n'est pas correct");
 		}
 		//Test de validité du titre
-		if(titre==null || titre.replaceAll(" ", "").length()<1){
+		if(this.isTitleBad(titre)){
 			throw new BadEntry("Le titre n'est pas correct");
 		}
 		//Test de validité de la note
-		if(note > 5.0 || note < 0.0)//Si pas comprise entre 0.0 et 5.0
+		if(this.isNoteBad(note))//Si pas comprise entre 0.0 et 5.0
 		{
 			throw new BadEntry("La note n'est pas correcte");
 		}
@@ -621,19 +678,19 @@ public class SocialNetwork {
 	public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember, SameMember{
 
 		//Test de la validité du pseudo 1
-		if(pseudo==null || pseudo.replaceAll(" ", "").length()<1){
+		if(this.isPseudoBad(pseudo)){
 			throw new BadEntry("Le pseudo n'est pas correct");
 		}
 		//Test de validité du password
-		if(password==null || password.trim().length()<4){
+		if(this.isPasswordBad(password)){
 			throw new BadEntry("Le password n'est pas correct");
 		}
 		//Test de validité du titre
-		if(titre==null || titre.replaceAll(" ", "").length()<1){
+		if(this.isTitleBad(titre)){
 			throw new BadEntry("Le titre n'est pas correct");
 		}
 		//Test de validité du pseudoMember
-		if(pseudoMember==null || pseudoMember.replaceAll(" ", "").length()<1){
+		if(this.isPseudoBad(pseudoMember)){
 			throw new BadEntry("Le pseudo du member n'est pas correct");
 		}
 		//Test de la validité du pseudo 2, : les pseudo doivent être différents
@@ -641,7 +698,7 @@ public class SocialNetwork {
 			throw new SameMember("Le pseudo est le même");
 		}
 		//Test de validité du karma
-		if(karma > 5.0 || karma < 0.0)//Si pas compris entre 0.0 et 5.0
+		if(this.isNoteBad(karma))//Si pas compris entre 0.0 et 5.0
 		{
 			throw new BadEntry("Le karma n'est pas correct");
 		}
