@@ -7,6 +7,7 @@
 | $$  | $$| $$$$$$$$| $$  | $$| $$$$$$$/      | $$ \/  | $$| $$$$$$$$      
 |__/  |__/|________/|__/  |__/|_______/       |__/     |__/|________/
 
+COMPILATION DU PROJET :
 
 1°) - Récupérer le dossier src contenant les codes sources et le placer où vous voulez.
 2°) - Ouvrir un terminal et se placer dans le dossier contenant le dossier src.
@@ -17,19 +18,6 @@
 
 
 Le test de validation se trouve dans le dossier src/test/TestSocialNetwork.java.
-
-
- /$$$$$$$$ /$$   /$$    /$$$$$  /$$$$$$  /$$     /$$       /$$
-| $$_____/| $$$ | $$   |__  $$ /$$__  $$|  $$   /$$/      | $$
-| $$      | $$$$| $$      | $$| $$  \ $$ \  $$ /$$/       | $$
-| $$$$$   | $$ $$ $$      | $$| $$  | $$  \  $$$$/        | $$
-| $$__/   | $$  $$$$ /$$  | $$| $$  | $$   \  $$/         |__/
-| $$      | $$\  $$$| $$  | $$| $$  | $$    | $$              
-| $$$$$$$$| $$ \  $$|  $$$$$$/|  $$$$$$/    | $$           /$$
-|________/|__/  \__/ \______/  \______/     |__/          |__/
-
-
-
 
 Signature de la fonction reviewOpinion de SocialNetwork.java :
 - Paramètres :
@@ -42,5 +30,32 @@ Signature de la fonction reviewOpinion de SocialNetwork.java :
 
 public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember, SameMember{}
 
+    /$$$$$  /$$$$$$  /$$    /$$  /$$$$$$        /$$$$$$$   /$$$$$$   /$$$$$$ 
+   |__  $$ /$$__  $$| $$   | $$ /$$__  $$      | $$__  $$ /$$__  $$ /$$__  $$
+      | $$| $$  \ $$| $$   | $$| $$  \ $$      | $$  \ $$| $$  \ $$| $$  \__/
+      | $$| $$$$$$$$|  $$ / $$/| $$$$$$$$      | $$  | $$| $$  | $$| $$      
+ /$$  | $$| $$__  $$ \  $$ $$/ | $$__  $$      | $$  | $$| $$  | $$| $$      
+| $$  | $$| $$  | $$  \  $$$/  | $$  | $$      | $$  | $$| $$  | $$| $$    $$
+|  $$$$$$/| $$  | $$   \  $/   | $$  | $$      | $$$$$$$/|  $$$$$$/|  $$$$$$/
+ \______/ |__/  |__/    \_/    |__/  |__/      |_______/  \______/  \______/ 
+                                                                             
+GÉNÉRATION DE LA JAVADOC :
+                                
+1°) - Récupérer le dossier src contenant les codes sources et le placer où vous voulez.
+2°) - Ouvrir un terminal et se placer dans le dossier contenant le dossier src.
+3°) - Créer un nouveau dossier (par exemple : mkdir Javadoc).
+4°) - Utiliser la commande javadoc : javadoc src/*/*.java -d Javadoc.
+5°) - Se déplacer dans le dossier Javadoc : cd Javadoc.
+6°) - Les fichiers html de la javadoc y sont présents.
+7°) - Utiliser votre navigateur préféré pour ouvrir le fichier index.html.
 
+
+ /$$$$$$$$ /$$   /$$    /$$$$$  /$$$$$$  /$$     /$$       /$$
+| $$_____/| $$$ | $$   |__  $$ /$$__  $$|  $$   /$$/      | $$
+| $$      | $$$$| $$      | $$| $$  \ $$ \  $$ /$$/       | $$
+| $$$$$   | $$ $$ $$      | $$| $$  | $$  \  $$$$/        | $$
+| $$__/   | $$  $$$$ /$$  | $$| $$  | $$   \  $$/         |__/
+| $$      | $$\  $$$| $$  | $$| $$  | $$    | $$              
+| $$$$$$$$| $$ \  $$|  $$$$$$/|  $$$$$$/    | $$           /$$
+|________/|__/  \__/ \______/  \______/     |__/          |__/
 

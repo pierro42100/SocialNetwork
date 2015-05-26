@@ -1,0 +1,111 @@
+\def\cover@CLASSNAME{cover}
+\def\cover@VERSION{1}
+\def\cover@DATE{2008/05/29}
+\def\cover@DATE@fr{29/05/2008}
+\def\cover@AUTHOR{Julien Mallet <julien.mallet@telecom-bretagne.eu>}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{\cover@CLASSNAME}[\cover@DATE]
+\RequirePackage[utf8]{inputenc} 
+\RequirePackage{tikz}
+
+
+%
+% la couverture
+% parametre 1 : les auteurs 
+% parametre 2 : titre document
+% parametre 3 : domaine
+% parametre 4 : version
+\newcommand{\frontcover}[4]{%
+\thispagestyle{empty}
+\enlargethispage{29cm}
+\noindent
+\begin{tikzpicture}
+  \draw[style=transparent] (0,0) grid (18,27);
+
+  \draw(6.5,24) node[anchor=north west,text width=10.7cm,text
+  ragged]{%
+    #1 
+  } ;
+
+  \draw(6.5,20) node[anchor=north west]{%
+    \includegraphics[width=10.7cm,height=2.65cm]{Frise}
+    } ;
+
+    \draw(6.5,15.8) node[anchor=north west,text width=10.7cm,text
+    ragged]{%
+    {\huge\textbf{#2}}} ;
+
+    \draw(6.5,13) node[anchor=north west,text width=10.7cm,text
+    ragged]{%
+      {\large\textbf{#3}}\\
+      #4} ;
+
+    \draw(6.5,1.7) node[anchor=south west]{%
+    \includegraphics[width=2.65cm,height=2.65cm]{TB}
+  } ;
+
+  \end{tikzpicture}
+}
+%
+% la quatrieme de couverture
+%
+\newcommand{\backcover}{%
+\thispagestyle{empty}
+\enlargethispage{29cm}
+\begin{center}
+\begin{tikzpicture}
+  \draw[style=transparent] (0,0) grid (18,26); 
+  \draw(5.6,2.15) node[anchor=north west,rotate=90,scale=1.34]{%
+    \Huge www.telecom-bretagne.eu
+};
+  \draw(7,14.2) node[anchor=north west]{%
+    \begin{minipage}{4cm}
+      \begin{scriptsize}
+        {\bf Campus de Brest}\\
+        Technop�le Brest-Iroise\\
+        CS 83818\\
+        29238 Brest Cedex 3\\
+        France\\
+        T�l : + 33 (0)2 29 00 11 11\\
+        Fax : + 33 (0)2 29 00 10 00
+        
+      \end{scriptsize}
+    \end{minipage}
+  };
+  
+  \draw(7,11.2) node[anchor=north west]{%
+    \begin{minipage}{4cm}
+      \begin{scriptsize}
+        {\bf Campus de Rennes}\\
+        2, rue de la Ch�taigneraie\\
+        CS 17607\\
+        35576 Cesson S�vign� Cedex\\
+        France\\
+        T�l : + 33 (0)2 99 12 70 00\\
+        Fax : + 33 (0)2 99 12 70 19
+        
+      \end{scriptsize}
+    \end{minipage}
+  };
+  
+  \draw(7,8.2) node[anchor=north west]{%
+    \begin{minipage}{4cm}
+      \begin{scriptsize}
+        {\bf Campus de Toulouse}\\
+        10, avenue \'Edouard Belin\\
+        BP 44004\\
+        31028 Toulouse Cedex 04\\
+        France\\
+        T�l : + 33 (0)5 61 33 83 65\\
+        Fax : + 33 (0)5 61 33 83 75
+        
+      \end{scriptsize}
+    \end{minipage}
+  };
+  \draw(7,5.2) node[anchor=north west]{%
+    \includegraphics[width=2.7cm]{TB}
+  };
+  
+\end{tikzpicture}
+\end{center}
+}
