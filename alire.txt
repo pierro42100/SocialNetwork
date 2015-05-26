@@ -7,12 +7,17 @@
 | $$  | $$| $$$$$$$$| $$  | $$| $$$$$$$/      | $$ \/  | $$| $$$$$$$$      
 |__/  |__/|________/|__/  |__/|_______/       |__/     |__/|________/
 
+
 1°) - Récupérer le dossier src contenant les codes sources et le placer où vous voulez.
 2°) - Ouvrir un terminal et se placer dans le dossier contenant le dossier src.
 3°) - Créer un nouveau dossier (par exemple : mkdir SocialNetwork).
 4°) - Utiliser la commande javac : javac src/*/*.java -d SocialNetwork.
 5°) - Se déplacer dans le dossier SocialNetwork : cd SocialNetwork.
 6°) - Utiliser la commande java avis.IHM
+
+
+Le test de validation se trouve dans le dossier src/test/TestSocialNetwork.java.
+
 
  /$$$$$$$$ /$$   /$$    /$$$$$  /$$$$$$  /$$     /$$       /$$
 | $$_____/| $$$ | $$   |__  $$ /$$__  $$|  $$   /$$/      | $$
@@ -22,6 +27,9 @@
 | $$      | $$\  $$$| $$  | $$| $$  | $$    | $$              
 | $$$$$$$$| $$ \  $$|  $$$$$$/|  $$$$$$/    | $$           /$$
 |________/|__/  \__/ \______/  \______/     |__/          |__/
+
+
+
 
 Signature de la fonction reviewOpinion de SocialNetwork.java :
 - Paramètres :
@@ -33,4 +41,6 @@ Signature de la fonction reviewOpinion de SocialNetwork.java :
 	- boolean BookOrNot : indique quel type d’objet il s’agit : true = Livre, false = Film
 
 public float reviewOpinion(String pseudo, String password, String titre, String pseudoMember, float karma, boolean BookOrNot) throws BadEntry, NotItem, NotMember, SameMember{}
+
+
 

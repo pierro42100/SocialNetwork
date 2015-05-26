@@ -230,6 +230,8 @@ public class TestsReviewOpinion {
 		{
 			System.out.println("TEST AJOUT NOUVEAU MEMBRE ItemFilmAlreadyExists : Impossible");
 		}
+		
+		
 
 		// <=> fiche numéro 1
 		// tentative d'ajout d'opinions de commentaire avec entrées "incorrectes"
@@ -274,8 +276,24 @@ public class TestsReviewOpinion {
 
 		nbTests++;
 		nbErreurs += reviewOpinionNotMemberTest(sn, "Paul", "mdpmauvais", "up", "Pierrick", 2.0f, false, "8.2", "L'ajout d'une opinion avec un pseudo et un mot de passe qui ne correspondent pas a fonctionné");
+	
+		//Il faut ajouter un commentaire au film pour teste la suite
+		try {
+			sn.reviewItemFilm("Pierrick", "pierrick", "up", 2.0f, "Bof bof bof");
+		} catch (BadEntry e) {
+			
+			e.printStackTrace();
+		} catch (NotMember e) {
+			
+			e.printStackTrace();
+		} catch (NotItem e) {
+			
+			e.printStackTrace();
+		}
 
 
+	
+		
 		nbTests++;
 		nbErreurs += reviewOpinionOKTest(sn, "Paul", "paul", "up", "Pierrick", 1.0f, false, "8.3", "L'ajout d'une opinion avec des paramêtres corrects n'a pas fonctionné");
 
