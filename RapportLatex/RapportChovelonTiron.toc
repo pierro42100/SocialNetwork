@@ -3,7 +3,7 @@
 \contentsline {chapter}{Fiches t\IeC {\^a}ches/temps}{4}
 \contentsline {chapter}{Diagramme de classes et diagrammes de s\IeC {\'e}quences}{5}
 \contentsline {chapter}{Rapport d'audit}{9}
-\contentsline {chapter}{Rapport d'audit}{10}
+\contentsline {chapter}{Rapport de recette}{10}
 \contentsline {chapter}{Bilan}{11}
 \contentsline {chapter}{Bilan g\IeC {\'e}n\IeC {\'e}ral}{12}
 \contentsline {chapter}{Annexes}{13}
