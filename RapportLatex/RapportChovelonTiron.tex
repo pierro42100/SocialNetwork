@@ -13,7 +13,7 @@
 \usepackage{cover}
 \usepackage{fancyhdr}
 \usepackage[final]{pdfpages}
-
+\usepackage{eurosym}
 
 \pagestyle{fancy}
 \lhead{Pierrick CHOVELON - Julien TIRON}
@@ -31,7 +31,6 @@
 %\renewcommand{\scdefault}{\sfdefault} 
 
 \definecolor{VertClair}{cmyk}{0.4,0.1,1,0}
-%\definecolor{VertClair}{RGB}{168,181,10}
 \definecolor{VertFonce}{cmyk}{1,0.55,0.5,0.5}
 % \makeatletter
 % \renewcommand\section{\@startsection {section}{1}{\z@}%
@@ -70,13 +69,59 @@
 \label{chapter:Fiche tâches/temps} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Fiches tâches/temps}
 
+\begin{flushleft}
+\begin{tabular}{|c|c|c|p{3cm}|} 
+\hline 
+Séance & Temps passé en P.H & Temps passé hors séance en P.H & Détails de l'activités \\ 
+\hline 
+BE1 & 2x3h & 0 & Rédaction du CdCF \\ 
+\hline 
+BE2 & 2x3h & 2x2h & Rédaction de la stratégie de validation, de la fiche de tests et codage des tests \\ 
+\hline 
+BE3 & 2x3h & 2x1h & Élaboration diagrammes \\ 
+\hline 
+TP1 & 2x3h & 2x1h & Javadoc et début codage \\ 
+\hline 
+TP2 & 2x3h & 2x2h + 1h & Codage des méthodes et des tests \\ 
+\hline 
+TP3 & 2x3h & 2x4h & Ajout de la fonctionnalité <<noter un avi>> \\ 
+\hline 
+TP4 & 2x3h & 2x3h & Mise à jour du code de la moyenne en prenant en compte le karma du membre  \\ 
+\hline 
+TP5 & 2x3h & 2x2h & Modification de code selon les remarques du groupe qui à fait la relecture \\
+\hline 
+TP6 & 2x3h & 2x1h + 3h & Modifications minimes du code et ajout information dans la javadoc\\
+\hline
+Total : $90 P.H$ & 54  & 36 &\\ 
+\hline 
+\end{tabular} 
+\end{flushleft}
+
+\begin{quotation}
+\textit{• Productivité en lignes de code source :}
+\end{quotation}
+
+La métrique de notre projet remonte que nous avons écrit 945 lignes de code pour le package \emph{avis} (sans les tests ni les commentaires). En estimant avoir travaillé 90 heures, nous arrivons à $\frac{945}{90} = 10.5$ lignes de codes par heure pour deux personnes. Ainsi un membre du binôme a écrit 5 lignes par heure de travail. 
+
+\begin{quotation}
+\textit{• Résultat financier de l'exercice :}
+\end{quotation}
+
+En partant du principe que le cout de revient d'une heure de travail d'un ingénieur junior s'élève à 60\euro{}  et que le projet a nécessité 87 heures de travail, nous chiffrons le coût de notre activité à $5220$\euro{}. 
+
+\begin{quotation}
+\textit{• Coût de la facturation du projet au client :}
+\end{quotation}
+
+
 
 \chapter*{Diagramme de classes et diagrammes de séquences}
+
 \label{chapter:Diagramme de classes et diagrammes de séquences} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Diagramme de classes et diagrammes de séquences}
 Vous trouverez dans les pages suivantes, les 3 diagrammes qui nous ont été demandés. \\
 
-Nous avons essayé de faire un diagramme de classe le plus simple possible pour facilité la compréhension de la structure du projet pour des personnes extérieur à celui-ci.
+Nous avons essayé de faire un diagramme de classe le plus simple possible pour facilité la compréhension de la structure du projet pour des personnes extérieur à celui-ci. Certaines méthodes déclarées en \emph{private} n'apparaissent pas ici (caprises de eUML). Elles se trouvent néanmoins dans la javadoc et dans les annexes.
 
 Le diagramme de séquence de reviewOpinion (Fig. \ref{fig:diagSeq1}) peut sembler trop simple. Nous avons choisi de ne représenter que le cas de fonctionnement normal (i.e les données passées en paramêtres sont valides). 
 
@@ -109,7 +154,7 @@ Le rapport d'audit effectué par un autre binôme nous a amené à changer notre
 
 La remarque de forme était très pertinente. En effet, le problème remonté était que nous utilisions toujours les mêmes conditions pour tester la validité des paramêtres donnés (\emph{pseudo}, \emph{password}, etc). Le copier-coller, rendant la tâche facile, nous à permis de réutiliser les condions des blocs \emph{if} aisément. Cependant, il est plus ingénieux et réfléchis de créer des fonctions qui renvoient \emph{true} ou \emph{false} selon un paramêtre donné. Ainsi, s'il faut modifier la manière dont est testé le \emph{password} par exemple, il suffit de modifier la fonction. Toutes les conditions utilisant cette fonction seront donc à jour, contrairement à la méthode que nous avions utilisée.\\
 
-Les autres remarques, bien que pertinentes, n'étaient pas rès grave et relevait la plupart du temps d'un manque d'explication dans les commentaires.
+Les autres remarques, bien que pertinentes, n'étaient pas très graves et relevaient la plupart du temps d'un manque d'explications dans notre code.
 
 \chapter*{Rapport de recette}
 \label{chapter:Rapport de recette} %Ajout dans la table des matières
