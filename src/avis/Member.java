@@ -8,6 +8,13 @@ package avis;
 
 /**
  * La classe <i>Member</i> est la classe qui correspond à un membre du <i>SocialNetwork</i>.
+ * Les attributs de cette classes sont :
+ * 
+ * - pseudo : String correspondant au pseudo du membre
+ * - password : String correspondant au password du membre
+ * - karma : float correspondant au karma du membre
+ * - nbKarma : int correspondant au nombre de karma que le membre à reçu
+ * - profil : String correspondant au profil du membre
  *
  */
 public class Member {

@@ -2,7 +2,12 @@ package avis;
 
 /**
  * La classe <i>Review</i> est la classe qui correspond aux commentaires du <i>SocialNetwork</i>.
- *
+ * Les attributs de cette classes sont :
+ * 
+ * - pseudo : String correspondant au pseudo du membre qui a ajouté la review
+ * - note : float correspondant à la note donné par le commentaire
+ * - karmaMember: float qui correspond au karma du membre quand il a ajouté la review
+ * - comment : String correspondant au commentaire du membre
  */
 
 public class Review {
