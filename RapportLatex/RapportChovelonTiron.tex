@@ -14,6 +14,36 @@
 \usepackage{fancyhdr}
 \usepackage[final]{pdfpages}
 \usepackage{eurosym}
+\usepackage{listings}
+\usepackage{upquote}
+\lstset{
+language=Java,
+basicstyle=\scriptsize, % ou ça==> basicstyle=\scriptsize,
+upquote=true,
+aboveskip={1.5\baselineskip},
+columns=fullflexible,
+showstringspaces=false,
+extendedchars=true,
+breaklines=true,
+showtabs=false,
+showspaces=false,
+showstringspaces=false,
+identifierstyle=\ttfamily,
+keywordstyle=\color[rgb]{0,0,1},
+commentstyle=\color[rgb]{0.133,0.545,0.133},
+stringstyle=\color[rgb]{0.627,0.126,0.941},
+numbers=left ,
+numberstyle=\tiny\bfseries\underline ,
+stepnumber=1,
+firstnumber=1,
+numberfirstline=true
+language={java}
+}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
 
 \pagestyle{fancy}
 \lhead{Pierrick CHOVELON - Julien TIRON}
@@ -64,7 +94,9 @@
 \label{chapter:Introduction} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Introduction}
 \indent Ce rapport a pour but de dresser un bilan le plus complet possible du projet fil rouge mené en INF112. Ce travail en binôme a pour but de nous faire découvrir les étapes d'un projet de développement logiciel de grande ampleur. Vous trouverez dans ce rapport les différentes informations concernant le projet ToutAvis et le travail que nous avons fourni pour le mener à bien. Vous trouverez dans chaque section quelques explications permettant de mieux comprendre notre démarche.\\
-Le rapport présente tout d'abord l'investissment en temps dans le projet ainsi que les chiffres représentatifs du développement. Ensuite, nous présenterons la structure de notre logiciel grâce aux diagrammes de classes et de séquences. Enfin, nous dresserons le bilan du projet grâce aux différents rapports d'audit et de recette.  
+
+Le rapport présente tout d'abord l'investissement en temps dans le projet ainsi que les chiffres représentatifs du développement. Ensuite, nous présenterons la structure de notre logiciel grâce aux diagrammes de classes et de séquences. Enfin, nous dresserons le bilan du projet grâce aux différents rapports d'audit et de recette.  
+
 \chapter*{Fiche tâches/temps}
 \label{chapter:Fiche tâches/temps} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Fiches tâches/temps}
@@ -107,7 +139,7 @@ La métrique de notre projet remonte que nous avons écrit 945 lignes de code po
 \textit{• Résultat financier de l'exercice :}
 \end{quotation}
 
-En partant du principe que le cout de revient d'une heure de travail d'un ingénieur junior s'élève à 60\euro{}  et que le projet a nécessité 87 heures de travail, nous chiffrons le coût de notre activité à $5220$\euro{}. 
+En partant du principe que le cout de revient d'une heure de travail d'un ingénieur junior s'élève à 60\euro{}  et que le projet a nécessité $90$ heures de travail, nous chiffrons le coût de notre activité à $5400$\euro{}. 
 
 \begin{quotation}
 \textit{• Coût de la facturation du projet au client :}
@@ -239,6 +271,7 @@ Les 8 cas d'utilisation lèvent bien une exception BadEntry comme prévu, le nom
 Les tests sont concluants, l'application respecte le CdC.
 \caption{Fiche de tests numéro 3}
 \end{figure}
+
 
 \begin{figure}
 \textbf{\begin{center}
@@ -454,6 +487,42 @@ Le CdC est respecté.
 \addcontentsline{toc}{chapter}{Bilan}
 
 
+Passons maintenant au bilan non fonctionnel du projet. Pour évaluer le rendement de notre programme,
+nous avons codé une classe \emph{TestEfficient} qui permet de mesurer le temps d'exécution des méthodes clés du projet (i.e celles utilisées directement par l'IHM). Ces méthodes sont appelées au sein d'un \emph{SocialNetwork} contenant 500 membres et 5000 items. Ci-dessous un exemple de code écrit :
+
+\begin{lstlisting}[caption = Code de rendement d'une fonction]
+...
+double duree;
+//Timer
+double start;
+start = System.nanoTime();
+try{
+	sn.addMember("toto", "password", "nouveau membre");
+}
+catch(BadEntry e)
+{
+	System.out.println("BadEntry");
+}
+catch(MemberAlreadyExists e)
+{
+System.out.println("MemberAlreadyExists");
+}
+duree = System.nanoTime() - start;
+System.out.println("Duree pour ajouter un nouveau membre : " + duree/1000000000 + " secondes\n");
+...
+\end{lstlisting} 
+Les résultats obtenus suivants sont tout-à-fait concluant et respectent le cahier des charges.
+\begin{lstlisting}[caption = Resultats obtenus]
+Duree pour ajouter un nouveau membre : 8.0896E-5 secondes
+Duree pour ajouter un film : 3.88864E-4 secondes
+Duree pour ajouter un livre : 0.001121024 secondes
+Duree pour rechercher un item : 0.001814016 secondes
+Duree pour ajouter un avis sur un Film : 0.00116992 secondes
+Duree pour ajouter un avis sur un Book : 0.001432064 secondes
+Duree pour ajouter un opinion(karma) a un membre : 0.001236992 secondes
+\end{lstlisting}
+
+
 \chapter*{Bilan général}
 \label{chapter:Bilan général} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Bilan général}
@@ -474,10 +543,12 @@ Pour reprendre la remarque relevée lors du rapport d'audit, nous pouvons dire q
 \textit{• Quels sont les avantages et inconvénients trouvés dans la démarche de conception en W ?}
 \end{quotation}
 
+La conception en $W$ possède quelques avantages, comme par exemple le fait, qu'en suivant ce cycle, nous sommes obligés de passer du temps sur l'analyse et sur la conception. Le temps passé lors de ces deux phases nous a permit de s'assurer que la phase de réalisation n'allait pas être vaine, et que ce que nous allions faire correspondrait bien à la demande. De plus, les phases de tests (unitaires et d'intégration) permettent de valider au fur et à mesure les différentes parties du projet.\\
 
-\chapter*{Annexes}
-\label{chapter:Annexes} %Ajout dans la table des matières
-\addcontentsline{toc}{chapter}{Annexes}
+Un inconvénient ...
+
+\appendix
+\chapter{Fiches de tests}
 
 
 
