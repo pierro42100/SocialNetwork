@@ -417,13 +417,33 @@ CdC respecté.
 \textbf{\begin{center}
 Fiche de test N6 
 \end{center}} 
+\textbf{Objectif du test }: éprouver la méthode reviewItemFilm sur les cas de fonctionnement standard. 
 \begin{itemize}
-\item
+	\item	But principal : Vérification de l’ajout ou de la mise à jour d’une opinion concernant l'item film après l’utilisation de reviewItemFilm après un fonctionnement «avec des paramètres d’entrées corrects ». 
+	\item	Buts secondaires :  Vérification de la levée d’exception NotMember par la méthode reviewItemFilm dans tous les cas prévus dans l’API. 
+	\item \begin{itemize}
+	\item Vérification de la levée d’exception NotItem par la méthode reviewItemFilm dans tous les cas prévu dans l’API. 
+\end{itemize}		
 \end{itemize}
+\textbf{Description (scénario) : }
+\begin{itemize}
+	\item	Instanciation d’un Social Network 
+	\item	2.1 Utilisation de reviewItemFilm pour l’ajout de plusieurs opinions « avec des paramètres d’entrées corrects » 
+	\item	2.2 Utilisation de reviewItemFilm avec en paramètre un pseudo non existant. 
+	\item	2.3 Utilisation de reviewItemFilm avec en paramètre un couple login/password non cohérent. 
+	\item	2.4 Utilisation de reviewItemFilm avec en paramètre un item film de titre inexistant. 
+\end{itemize}
+\textbf{Résultats attendus : }
 
-\begin{itemize}
-\item
-\end{itemize}
+L’ajout d’une opinion sur un Film « avec des paramètres d’entrées corrects» ne doit pas lever d’exception. La nouvelle opinion saisie constitue la mise à jour de l'opinion. Dans les 2 utilisations suivantes de reviewItemFilm, l’exception NotMember doit être levée. 
+Dans la dernière utilisation, l’exception NotItem doit être levée. 
+De plus, après la levée de ces deux exceptions, l'opinion du membre concernant l'item film, existante ou pas, doit être identique à l'opinion avant l’appel de la fonction reviewItemFilm. 
+
+\textbf{Résultats observés : }
+Les résultats sont conformes.
+\textbf{Conclusion : }
+Le CdC est respecté.
+
 \caption{Fiche de test numéro 6}
 \end{figure}
 
