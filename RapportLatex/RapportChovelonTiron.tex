@@ -159,7 +159,275 @@ Les autres remarques, bien que pertinentes, n'étaient pas très graves et relev
 \chapter*{Rapport de recette}
 \label{chapter:Rapport de recette} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Rapport de recette}
-Lors de cette recette, aucune erreur n'a été relevée par le binôme client. Aucune modification n'a donc été apportée. Le fait que nos tests, ainsi que les tests du binôme client, ne relèvent aucune erreur nous permet donc de s'assurer de la conformité de notre livrable par rapport au cahier des charges.
+
+\begin{tabular}{|p{2.1cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{2cm}|}
+\hline 
+Nombre de tests prévus & Tests passés & Tests OK & Tests Non OK & Tests NS & Anomalies majeures & Anomalies mineures \\ 
+\hline 
+8 & 8 & 8 & 0 & 0 & 0 & 1 \\ 
+\hline 
+\end{tabular} 
+
+\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|} 
+\hline 
+Numéro & Identification du test & Résultats & Gravité \\ 
+\hline 
+1 & Test en environnement «prestataire» : avec instructions du fichier «alire». & OK, pas d'erreur, mais il n'est pas possible de tester le lot2 depuis l'IHM & Mineure \\ 
+\hline 
+2 & TestsInitialisation & ok & RAS \\ 
+\hline 
+3 & TestsAddMember & ok & RAS \\ 
+\hline 
+4 & TestsAddItemFilm & ok & RAS \\ 
+\hline 
+5 & TestsAddItemBook & ok & RAS \\ 
+\hline 
+6 & TestsReviewItemFilm & ok & RAS \\ 
+\hline 
+7 & TestsReviewItemBook & ok & RAS \\ 
+\hline 
+8 & TestsReviewOpinion & ok & RAS \\ 
+\hline 
+\end{tabular}\\
+
+Lors de cette recette, aucune erreur importante n'a été relevée par le binôme client. Aucune modification n'a donc été apportée. Le fait que nos tests, ainsi que les tests du binôme client, ne relèvent aucune erreur nous permet donc de s'assurer de la conformité de notre livrable par rapport au cahier des charges.
+
+Ci-dessous les fiches de tests du binôme correcteur.
+
+\begin{figure}
+
+\textbf{\begin{center}
+Fiche de test N3   
+\end{center}} 
+
+\textbf{Objectif du test }: éprouver la méthode addItemFilm sur les cas d'anomalie. 
+Vérification de la levée de l'exception BadEntry lors de l'utilisation de AddItemFilm « avec des paramètres d'entrées incorrects ». 
+\textbf{Pour rappel }: Les 5 cas de levée de l'exception BadEntry par la méthode addItemFilm prévus dans l'API sont :
+\begin{itemize}
+	\item	Si le pseudo n’est pas instancié ou a moins de 1 caractère autre que des espaces.
+	\item	Si le password n’est pas instancié ou a moins de 4 caractères autres que des leadings or traling blanks.
+	\item	Si le titre n’est pas instancié ou a moins de 1 caractère autre que des espaces.
+	\item	Si le genre n’est pas instancié.
+	\item	Si le réalisateur n’est pas instancié.
+	\item	Si le scénariste n’est pas instancié.
+	\item	Si la durée n’est pas positive
+\end{itemize}
+
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item	Instanciation d’un Social Network
+	\item	1.1 Utilisation de AddItemFilm avec en paramètre un pseudo non instancié.
+	\item	1.2 Utilisation de AddItemFilm avec en paramètre un pseudo ne contenant que des espaces.
+	\item	1.3 Utilisation de AddItemFilm avec en paramètre un titre non instancié.
+	\item	1.4 Utilisation de AddItemFilm avec en paramètre un titre ne contenant moins d’un caractère autres que des leadings or traling blanks.
+	\item	1.5 Utilisation de AddItemFilm avec en paramètre un genre non instancié.
+	\item	1.6 Utilisation de AddItemFilm avec en paramètre un réalisateur non instancié.
+	\item	1.7 Utilisation de AddItemFilm avec en paramètre un scénariste non instancié.
+	\item	1.8 Utilisation de AddItemFilm avec en paramètre une durée négative.
+\end{itemize}
+
+\textbf{Résultats attendus :}
+Dans les 8 cas d’utilisations de AddItemFilm, l’exception BadEntry doit être levée.
+De plus, après la levée de l’exception BadEntry lors de l’utilisation de AddItemFilm, le nombre de films doit rester identique au nombre de Film avant l’utilisation de AddItemFilm.
+
+\textbf{Résultats observés :}
+
+Les 8 cas d'utilisation lèvent bien une exception BadEntry comme prévu, le nombre de films n'a pas été modifié.
+
+\textbf{Conclusion :}
+
+Les tests sont concluants, l'application respecte le CdC.
+\caption{Fiche de tests numéro 3}
+\end{figure}
+
+\begin{figure}
+\textbf{\begin{center}
+Fiche de test N4 
+\end{center}} 
+
+\textbf{Objectif du test} : éprouver la méthode AddItemFilm sur les cas de fonctionnement standard.
+
+\begin{itemize}
+	\item	But principal : Vérification de l’ajout d’un nouvel item de film après l’utilisation de AddItemFilm après un fonctionnement « avec des paramètres d’entrées corrects ».	
+	\item	Buts secondaires : 
+\begin{itemize}
+	\item	Vérification de la levée d’exception NotMember par la méthode AddItemFilm dans tous les cas prévu dans l’API.
+
+	\item	Vérification de la levée d’exception ItemFilmAlreadyExists par la méthode AddItemFilm dans tous les cas prévu dans l’API.
+\end{itemize}
+\end{itemize}
+
+
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item 	Instanciation d’un Social Network
+	\item 	2.1 Utilisation de AddItemFilm pour l’ajout de plusieurs Item « avec des paramètres d’entrées corrects »
+	\item 	2.2 Utilisation de AddItemFilm avec en paramètre un pseudo non existant.
+	\item 	2.3 Utilisation de AddItemFilm avec en paramètre un couple login/password non cohérent.
+	\item  2.4 Utilisation de AddItemFilm avec en paramètre un item film de même titre déjà présent (mais avec des leadings et trailings blanks).
+\end{itemize}
+
+\textbf{Résultats attendus :}
+
+L’ajout d’item de Film « avec des paramètres d’entrée corrects » ne doit pas lever d’exception, le nombre d’items de Film après ces ajouts doit avoir augmenté en conséquence.
+Dans les 2 utilisations suivantes de AddItemFilm, l’exception NotMember doit être levée.
+Dans la dernière utilisation, l’exception ItemFilmAlreadyExists doit être levée.
+
+De plus, après la levée de ces deux exceptions, le nombre d’items de Film doit rester identique au nombre d’items de Film avant l’appel de la fonction AddItemFilm.
+
+\textbf{Résultats observés :}
+
+Les résultats sont en concordance avec ce qui était attendu.
+
+\textbf{Conclusion :}
+
+Le code respecte le CdC.
+
+\caption{Fiche de test numéro 4}
+\end{figure}
+
+\begin{figure}
+\textbf{\begin{center}
+Fiche de test N11  
+\end{center}} 
+\textbf{Objectif du test :} éprouver la méthode reviewOpinion sur les cas d'anomalie. 
+
+Vérification de la levée de l'exception BadEntry lors de l'utilisation de reviewOpinion « avec des paramètres d'entrées incorrects ». 
+Pour rappel : Les 5 cas de levée de l'exception BadEntry par la méthode reviewOpinion prévus dans l'API sont :
+\begin{itemize}
+	\item Si le pseudo n’est pas instancié ou a moins de 1 caractère autre que des espaces.
+	\item 	Si le password n’est pas instancié ou a moins de 4 caractères autres que des leadings or trailing blanks.
+	\item 	Si le titre n’est pas instancié ou a moins de 1 caractère autre que des espaces.
+	\item 	Si le genre n’est pas instancié.
+	\item 	Si le réalisateur n’est pas instancié.
+	\item 	Si le scénariste n’est pas instancié.
+	\item 	Si la durée n’est pas positive.
+\end{itemize}
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item	Instanciation d’un Social Network
+	\item	1.1 Utilisation de ReviewOpinion avec en paramètre un pseudo non instancié.
+	\item	1.2 Utilisation de ReviewOpinion avec en paramètre un pseudo ne contenant que des espaces.
+	\item	1.3 Utilisation de ReviewOpinion avec en paramètre un titre non instancié.
+	\item	1.4 Utilisation de ReviewOpinion avec en paramètre un titre ne contenant moins d’un caractère autres que des leadings or traling blanks.
+	\item	1.5 Utilisation de ReviewOpinion avec en paramètre un genre non instancié.
+	\item	1.6 Utilisation de ReviewOpinion avec en paramètre un réalisateur non instancié.
+	\item	1.7 Utilisation de ReviewOpinion avec en paramètre un scénariste non instancié.
+	\item	1.8 Utilisation de ReviewOpinion avec en paramètre une durée négative.
+\end{itemize}
+
+\textbf{Résultats attendus :}
+
+Dans les 8 cas d’utilisations de ReviewOpinion, l’exception BadEntry doit être levée.
+De plus, après la levée de l’exception BadEntry lors de l’utilisation de ReviewOpinion, le nombre de films doit rester identique au nombre de Film avant l’utilisation de ReviewOpinion.
+
+\textbf{Résultats observés :}
+
+Les exceptions sont levées correctement.
+
+\textbf{Conclusion :}
+
+Le CdC est respecté.
+
+\caption{Fiche de test numéro 11}
+\end{figure}
+
+
+\begin{figure}
+\textbf{\begin{center}
+Fiche de test N12  
+\end{center}} 
+\textbf{Objectif du test :} éprouver la méthode reviewOpinion sur les cas de fonctionnement standard. 
+
+\textbf{But principal :} vérification de l'ajout d'une opinion après l'utilisation de reviewOpinion avec des paramètres d'entrée corrects.
+
+\textbf{But secondaire :} vérification des levées des exception NotItem, NotMember.
+
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item	Instanciation d’un Social Network
+	\item	Utilisation de addMember pour l'ajout de plusieurs membres avec paramètres d'entrées corrects.
+	\item	Utilisation de addItemBook pour l'ajout de deux Items Book.
+	\item	Utilisation de addItemFilm pour l'ajout d'un Item Film.
+	\item	Utilisation de ReviewItemBook pour création d'une opinion sur les deux items Book.
+	\item	Utilisation de  ReviewItemFilm pour création d'une opinion sur  l'Item Film.
+	\item	1.1 Utilisation de ReviewOpinion avec paramètres d'entrée corrects pour review des trois items crées.
+	\item	1.2 Utilisation de ReviewOpinion avec en paramètre un Membre inexistant.
+	\item	1.3 Utilisation de ReviewOpinion avec en paramètre un titre d' Item inexistant.
+	\item	1.4 Utilisation de ReviewOpinion avec en paramètre un pseudo de « reviewer » inexistant.
+\end{itemize}
+\textbf{Résultats attendus :}
+
+Dans les 3 derniers cas d’utilisations de ReviewOpinion, les exceptions NotItem et NotMember doivent être levées.
+L'utilisation standard de ReviewOpinion doit modifier le karma de l'auteur de la review pour l'item concerné.
+
+\textbf{Résultats observés :}
+
+Les résultats observés sont conformes.
+
+\textbf{Conclusion :}
+
+Le code respecte le CdC.
+\caption{Fiche de test numéro 12}
+\end{figure}
+
+\begin{figure}
+\textbf{\begin{center}
+Fiche de test N5
+\end{center}}
+\textbf{Objectif du test :} éprouver la méthode reviewItemFilm sur les cas d'anomalie. Vérification de la levée de l'exception BadEntry lors de l'utilisation de reviewItemFilm « avec des paramètres d'entrées incorrects ».
+\textbf{Pour rappel :} Les 5 cas de levée de l'exception BadEntry par la méthode reviewItemFilm prévus dans l'API sont :  
+\begin{itemize}
+	\item	Si le pseudo n’est pas instancié ou a moins de 1 caractère autre que des espaces.
+	\item	Si le password n’est pas instancié ou a moins de 4 caractères autres que des leadings or traling blanks. 
+	\item	Si le titre n’est pas instancié ou a moins de 1 caractère autre que des espaces. 
+	\item	Si la note n'est pas comprise entre 0.0 et 5.0 
+	\item	Si le commentaire n’est pas instancié. 
+\end{itemize}
+\textbf{Description (scénario) :}
+\begin{itemize}
+    \item	Instanciation d’un Social Network 
+	\item	Instanciation de trois utilisateurs 
+	\item	Instanciation de trois films 
+	\item	1.1 Utilisation de reviewItemFilm avec en paramètre un pseudo non instancié. 
+	\item	1.2 Utilisation de reviewItemFilm avec en paramètre un pseudo ne contenant que des espaces. 
+	\item	1.3 Utilisation de reviewItemFilm avec en paramètre un password non instancié. 
+	\item	1.4 Utilisation de reviewItemFilm avec en paramètre un password contenant moins de 4 caractères autres que des leading et trailing blanks. 
+	\item	1.5 Utilisation de reviewItemFilm avec en paramètre un titre non instancié. 
+	\item	1.6 Utilisation de reviewItemFilm avec en paramètre un titre ne contenant que des espaces . 
+	\item	1.7 Utilisation de reviewItemFilm avec en paramètre une note négative 
+	\item	1.8 Utilisation de reviewItemFilm avec en paramètre une note supérieure à 5.0 
+	\item	1.9 Utilisation de reviewItemFilm avec en paramètre un commentaire non instancié. 
+\end{itemize}
+
+\textbf{Résultats attendus : }
+Dans les 9 cas d’utilisations de reviewItemFilm, l’exception BadEntry doit être levée. 
+De plus, après la levée de l’exception BadEntry lors de l’utilisation de reviewItemFilm, le nombre de films doit rester identique au nombre de Film avant l’utilisation de reviewItemFilm. 
+
+\textbf{Résultats observés : }
+Résultats conformes.
+
+\textbf{Conclusion : }
+CdC respecté.
+\caption{Fiche de test numéro 5}
+\end{figure}
+
+
+\begin{figure}
+\textbf{\begin{center}
+Fiche de test N6 
+\end{center}} 
+\begin{itemize}
+\item
+\end{itemize}
+
+\begin{itemize}
+\item
+\end{itemize}
+\caption{Fiche de test numéro 6}
+\end{figure}
+
+
 
 \chapter*{Bilan}
 \label{chapter:Bilan} %Ajout dans la table des matières
