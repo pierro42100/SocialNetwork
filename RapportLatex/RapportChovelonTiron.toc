@@ -1,3 +1,4 @@
+\select@language {french}
 \contentsline {chapter}{Introduction}{3}
 \contentsline {chapter}{Fiches t\IeC {\^a}ches/temps}{4}
 \contentsline {chapter}{Diagramme de classes et diagrammes de s\IeC {\'e}quences}{6}
@@ -5,4 +6,4 @@
 \contentsline {chapter}{Rapport de recette}{11}
 \contentsline {chapter}{Bilan}{18}
 \contentsline {chapter}{Bilan g\IeC {\'e}n\IeC {\'e}ral}{19}
-\contentsline {chapter}{Annexes}{20}
+\contentsline {chapter}{\numberline {A}Fiches de tests}{20}

@@ -72,8 +72,6 @@ public class TestEfficient {
 		//////////////////////////
 		//Timer
 		double start;
-
-
 		start = System.nanoTime();
 
 		try{
