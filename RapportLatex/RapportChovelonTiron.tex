@@ -113,7 +113,11 @@ En partant du principe que le cout de revient d'une heure de travail d'un ingén
 \textit{• Coût de la facturation du projet au client :}
 \end{quotation}
 
+Nous décidons de facturer le coût du projet plus une marge de 20\% au client (marge décidé au préalable avec le client).
 
+$\ 5220+5220* \frac{20}{100} = 6264$\euro{}
+
+Ce prix comprend la réalisation et la livraison du lot 1 et 2 de ToutAvis. Ces lots sont conformes avec le cahier des charges établi par le client.
 
 \chapter*{Diagramme de classes et diagrammes de séquences}
 
@@ -150,11 +154,11 @@ Le diagramme de séquence de reviewOpinion (Fig. \ref{fig:diagSeq1}) peut semble
 \chapter*{Rapport d'audit}
 \label{chapter:Rapport d'audit} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Rapport d'audit}
-Le rapport d'audit effectué par un autre binôme nous a amené à changer notre code. Au total, se sont 8 remarques qui nous ont été faites. 7 d'entre elles concernaient un problème de fond et 1 un problème de forme. Nous avons acceptés 7 remarques. La remarque que nous avons refusée ne nous semblait pas opportune (gravité mineure). \\
+Le rapport d'audit effectué par un autre binôme nous a amené à changer notre code. Au total, se sont 8 remarques qui nous ont été faites. 7 d'entre elles concernaient un problème de fond et 1 un problème de forme. Nous avons acceptés 7 remarques pertinentes. La remarque que nous avons refusée n'était qu'une mauvaise compréhension d'un commentaire de test. \\
 
-La remarque de forme était très pertinente. En effet, le problème remonté était que nous utilisions toujours les mêmes conditions pour tester la validité des paramêtres donnés (\emph{pseudo}, \emph{password}, etc). Le copier-coller, rendant la tâche facile, nous à permis de réutiliser les condions des blocs \emph{if} aisément. Cependant, il est plus ingénieux et réfléchis de créer des fonctions qui renvoient \emph{true} ou \emph{false} selon un paramêtre donné. Ainsi, s'il faut modifier la manière dont est testé le \emph{password} par exemple, il suffit de modifier la fonction. Toutes les conditions utilisant cette fonction seront donc à jour, contrairement à la méthode que nous avions utilisée.\\
+La remarque de forme était très pertinente. En effet, le problème remonté était que nous utilisions toujours les mêmes conditions pour tester la validité des paramêtres donnés (\emph{pseudo}, \emph{password}, etc). Le copier-coller, rendant la tâche facile, nous à permis de réutiliser les conditions des blocs \emph{if} aisément. Cependant, il est plus claire et efficace de créer des fonctions qui renvoient \emph{true} ou \emph{false} selon un paramêtre donné. Ainsi, s'il faut modifier la manière dont est testé le \emph{password} par exemple, il suffit de modifier la fonction. Toutes les conditions utilisant cette fonction seront donc à jour, contrairement à la méthode que nous avions utilisée.\\
 
-Les autres remarques, bien que pertinentes, n'étaient pas très graves et relevaient la plupart du temps d'un manque d'explications dans notre code.
+Les autres remarques, bien que pertinentes, n'étaient pas très graves et relevaient la plupart du temps de petits détails.
 
 \chapter*{Rapport de recette}
 \label{chapter:Rapport de recette} %Ajout dans la table des matières
@@ -441,6 +445,7 @@ De plus, après la levée de ces deux exceptions, l'opinion du membre concernant
 
 \textbf{Résultats observés : }
 Les résultats sont conformes.
+
 \textbf{Conclusion : }
 Le CdC est respecté.
 
@@ -452,7 +457,43 @@ Le CdC est respecté.
 \chapter*{Bilan}
 \label{chapter:Bilan} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Bilan}
+Le livrable remis du logiciel ToutAvis comprend le lot 1 et 2. Le code est simple et efficace (nombre de lignes de code<1000) tout en respectant toutes les exigences du cahier des charges. Cette simplicité permet également au logiciel de remplir les critères de rendement.
 
+Comme expliqué précedemment, la relecture croisée a été très bénéfique à notre programme. Beaucoup d'améliorations ont été apportées à la suite de ce retour. Il a permis à un autre binôme de donner un nouveau regard sur notre code et de détecter des détails auxquels nous n'avions pas pensé. Ci-dessous, la liste des améliorations apportées à la suite du rapport d'audit:
+\begin{itemize}
+	\item	Suppression de la méthode getPassword() remplacée par une méthode interne au membre pour respecter l'encapsulation et protéger la donnée.
+	\item	Dans reviewOpinion(), ajout d'une vérification pour confirmer que le membre a bien commenté l'item.
+	\item	Rempacement des tests pour lever les exceptions par des fonctions qui permettent de mettre à jour très facilement le code. 
+	\item	mise à jour de certains commentaires dans le code pour le rendre plus lisible.
+\end{itemize}
+
+La recette n'ayant remonté aucun défaut, il n'y a pas eu de modification ultérieure au rapport de recette.
+Le logiciel ToutAvis est donc totalement fonctionnel. Quelques améliorations non-présentes dans le cahier des charges peuvent toute fois encore être ajoutées.
+
+\begin{center}
+\begin{tabular}{|c|c|p{6cm}|}
+\hline 
+Fonction & Pourcentage de validité & Améliorations possibles \\ 
+\hline 
+addMember & 100\% & RAS \\ 
+\hline 
+addItemFilm & 100\% & RAS \\ 
+\hline 
+addItemBook & 100\% & RAS \\ 
+\hline 
+reviewItemFilm & 100\% & RAS \\ 
+\hline 
+reviewItemBook & 100\% & RAS \\ 
+\hline 
+ReviewOpinion & 80\% & système de notation à améliorer(un utilisateur peut noter un même membre sur plusieurs commentaires)  \\ 
+\hline 
+\end{tabular}\\
+\end{center}
+\begin{center}
+\textbf{Figure 10: }Bilan fonctionnel du produit livré
+\end{center}
+
+\\TODO: rendement
 
 \chapter*{Bilan général}
 \label{chapter:Bilan général} %Ajout dans la table des matières
@@ -462,7 +503,7 @@ Pour dresser un bilan général du travail réalisé, nous pouvons tout d'abord 
 \textit{• Quels sont les points faibles et les points forts de votre livrable ?}
 \end{quotation}
 
-Le livrable que nous proposons est, d'une part, simple à comprendre grâce à la javadoc et, d'autre part, fidèle au cahier des charges grâce notamment à la batterie de tests effectués sur celui-ci. En plus des tests <<classiques>> sur les méthodes et les classes qui vont être utilisées, nous avons effectués des tests de rendement sur l'utisalisation de celle-ci. 
+Le livrable que nous proposons est, d'une part, simple à comprendre grâce à la javadoc et, d'autre part, fidèle au cahier des charges grâce notamment à la batterie de tests effectués sur celui-ci. En plus des tests <<classiques>> sur les méthodes et les classes qui vont être utilisées, nous avons effectués des tests de rendement sur l'utilisation de celle-ci. 
 
 \begin{quotation}
 \textit{• Si c'était à refaire, que changerions-nous, le cas échéant, dans notre démarche de conception-réalisation ?}
@@ -474,6 +515,7 @@ Pour reprendre la remarque relevée lors du rapport d'audit, nous pouvons dire q
 \textit{• Quels sont les avantages et inconvénients trouvés dans la démarche de conception en W ?}
 \end{quotation}
 
+La démarche de conception en W nous a permis d'améliorer notre programme comparé à la version initiale. Contrairement à un cycle en V, le cycle en W nous a permis d'avoir une vision extérieure sur le travail réalisé. Ces remarques ont été crutiales pour rendre notre code plus facile à modifier et à mettre à jour. Cependant un cycle en spirale aurait permis grâce à un plus grand nombre d'itérations de créer un logiciel plus complexe et robuste. Le principale obstacle qui nous a empêché de travailler de cette manière a été l'investissement en temps nécessaire à l'application d'une telle méthode. 
 
 \chapter*{Annexes}
 \label{chapter:Annexes} %Ajout dans la table des matières
