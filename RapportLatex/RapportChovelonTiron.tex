@@ -526,11 +526,10 @@ ReviewOpinion & 80\% & système de notation à améliorer(un utilisateur peut no
 \textbf{Figure 10: }Bilan fonctionnel du produit livré
 \end{center}
 
-\\TODO: rendement
-
 Passons maintenant au bilan non fonctionnel du projet. Pour évaluer le rendement de notre programme,
 nous avons codé une classe \emph{TestEfficient} qui permet de mesurer le temps d'exécution des méthodes clés du projet (i.e celles utilisées directement par l'IHM). Ces méthodes sont appelées au sein d'un \emph{SocialNetwork} contenant 500 membres et 5000 items. Ci-dessous un exemple de code écrit :
 
+\begin{figure}
 \begin{lstlisting}[caption = Code de rendement d'une fonction]
 ...
 double duree;
@@ -562,7 +561,7 @@ Duree pour ajouter un avis sur un Film : 0.00116992 secondes
 Duree pour ajouter un avis sur un Book : 0.001432064 secondes
 Duree pour ajouter un opinion(karma) a un membre : 0.001236992 secondes
 \end{lstlisting}
-
+\end{figure}
 
 \chapter*{Bilan général}
 \label{chapter:Bilan général} %Ajout dans la table des matières
@@ -572,11 +571,11 @@ Pour dresser un bilan général du travail réalisé, nous pouvons tout d'abord 
 \textit{• Quels sont les points faibles et les points forts de votre livrable ?}
 \end{quotation}
 
-<<<<<<< HEAD
+
 Le livrable que nous proposons est, d'une part, simple à comprendre grâce à la javadoc et, d'autre part, fidèle au cahier des charges grâce notamment à la batterie de tests effectués sur celui-ci. En plus des tests <<classiques>> sur les méthodes et les classes qui vont être utilisées, nous avons effectués des tests de rendement sur l'utilisation de celle-ci. 
-=======
+
 Le livrable que nous proposons est, d'une part, simple à comprendre grâce à la javadoc et, d'autre part, fidèle au cahier des charges grâce notamment à la batterie de tests effectués sur celui-ci. En plus des tests <<classiques>> sur les méthodes et les classes qui vont être utilisées, nous avons effectués des tests de rendement sur l'utilisation de celles-ci.
->>>>>>> 37e070588a8f99a0b7b88186428ccc3b8e8a1245
+
 
 \begin{quotation}
 \textit{• Si c'était à refaire, que changerions-nous, le cas échéant, dans notre démarche de conception-réalisation ?}
@@ -588,13 +587,10 @@ Pour reprendre la remarque relevée lors du rapport d'audit, nous pouvons dire q
 \textit{• Quels sont les avantages et inconvénients trouvés dans la démarche de conception en W ?}
 \end{quotation}
 
-<<<<<<< HEAD
-La démarche de conception en W nous a permis d'améliorer notre programme comparé à la version initiale. Contrairement à un cycle en V, le cycle en W nous a permis d'avoir une vision extérieure sur le travail réalisé. Ces remarques ont été crutiales pour rendre notre code plus facile à modifier et à mettre à jour. Cependant un cycle en spirale aurait permis grâce à un plus grand nombre d'itérations de créer un logiciel plus complexe et robuste. Le principale obstacle qui nous a empêché de travailler de cette manière a été l'investissement en temps nécessaire à l'application d'une telle méthode. 
-=======
-La conception en $W$ possède quelques avantages, comme par exemple le fait, qu'en suivant ce cycle, nous sommes obligés de passer du temps sur l'analyse et sur la conception. Le temps passé lors de ces deux phases nous a permit de s'assurer que la phase de réalisation n'allait pas être vaine, et que ce que nous allions faire correspondrait bien à la demande. De plus, les phases de tests (unitaires et d'intégration) permettent de valider au fur et à mesure les différentes parties du projet.\\
 
-Un inconvénient ...
->>>>>>> 37e070588a8f99a0b7b88186428ccc3b8e8a1245
+La démarche de conception en $W$ nous a permis d'améliorer notre programme comparé à la version initiale. Contrairement à un cycle en $V$, le cycle en $W$ nous a permis d'avoir une vision extérieure sur le travail réalisé. Ces remarques ont été crutiales pour rendre notre code plus facile à modifier et à mettre à jour. Cependant un cycle en spirale aurait permis grâce à un plus grand nombre d'itérations de créer un logiciel plus complexe et robuste. Le principale obstacle qui nous a empêché de travailler de cette manière a été l'investissement en temps nécessaire à l'application d'une telle méthode. 
+
+La conception en $W$ possède quelques avantages, comme par exemple le fait, qu'en suivant ce cycle, nous sommes obligés de passer du temps sur l'analyse et sur la conception. Le temps passé lors de ces deux phases nous a permit de s'assurer que la phase de réalisation n'allait pas être vaine, et que ce que nous allions faire correspondrait bien à la demande. De plus, les phases de tests (unitaires et d'intégration) permettent de valider au fur et à mesure les différentes parties du projet.\\
 
 \appendix
 \chapter{Fiches de tests}
