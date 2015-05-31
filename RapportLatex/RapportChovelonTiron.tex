@@ -102,7 +102,7 @@ Le rapport présente tout d'abord l'investissement en temps dans le projet ainsi
 \addcontentsline{toc}{chapter}{Fiches tâches/temps}
 
 \begin{flushleft}
-\begin{tabular}{|c|c|c|p{3cm}|} 
+\begin{tabular}{|c|p{3cm}|p{3cm}|p{7cm}|} 
 \hline 
 Séance & Temps passé en P.H & Temps passé hors séance en P.H & Détails de l'activités \\ 
 \hline 
@@ -130,24 +130,24 @@ Total : $90 P.H$ & 54  & 36 &\\
 \end{flushleft}
 
 \begin{quotation}
-\textit{• Productivité en lignes de code source :}
+\textbf{\textit{ - Productivité en lignes de code source :}}
 \end{quotation}
 
 La métrique de notre projet remonte que nous avons écrit 945 lignes de code pour le package \emph{avis} (sans les tests ni les commentaires). En estimant avoir travaillé 90 heures, nous arrivons à $\frac{945}{90} = 10.5$ lignes de codes par heure pour deux personnes. Ainsi un membre du binôme a écrit 5 lignes par heure de travail. 
 
 \begin{quotation}
-\textit{• Résultat financier de l'exercice :}
+\textbf{\textit{ - Résultat financier de l'exercice :}}
 \end{quotation}
 
-En partant du principe que le cout de revient d'une heure de travail d'un ingénieur junior s'élève à 60\euro{}  et que le projet a nécessité $90$ heures de travail, nous chiffrons le coût de notre activité à $5400$\euro{}. 
+En partant du principe que le cout de revient d'une heure de travail d'un ingénieur junior s'élève à 60\euro{}  et que le projet a nécessité $90$ heures de travail, nous chiffrons le coût de notre activité à $5400$\euro{}. En première approche, nous avions estimé le coût de ce projet à $6000$ \euro{}. Nous avions donc vu juste sur l'estimation.
 
 \begin{quotation}
-\textit{• Coût de la facturation du projet au client :}
+\textbf{\textit{ - Coût de la facturation du projet au client :}}
 \end{quotation}
 
-Nous décidons de facturer le coût du projet plus une marge de 20\% au client (marge décidé au préalable avec le client).
+Nous décidons de facturer le coût du projet plus une marge de 20\% au client (marge décidée au préalable avec le client).
 
-$\ 5220+5220* \frac{20}{100} = 6264$\euro{}
+$\ 5400+5400* \frac{20}{100} = 6480$\euro{}
 
 Ce prix comprend la réalisation et la livraison du lot 1 et 2 de ToutAvis. Ces lots sont conformes avec le cahier des charges établi par le client.
 
@@ -157,13 +157,13 @@ Ce prix comprend la réalisation et la livraison du lot 1 et 2 de ToutAvis. Ces 
 \addcontentsline{toc}{chapter}{Diagramme de classes et diagrammes de séquences}
 Vous trouverez dans les pages suivantes, les 3 diagrammes qui nous ont été demandés. \\
 
-Nous avons essayé de faire un diagramme de classe le plus simple possible pour facilité la compréhension de la structure du projet pour des personnes extérieur à celui-ci. Certaines méthodes déclarées en \emph{private} n'apparaissent pas ici (caprises de eUML). Elles se trouvent néanmoins dans la javadoc et dans les annexes.
+Nous avons essayé de faire un diagramme de classe le plus simple possible pour facilité la compréhension de la structure du projet pour des personnes extérieur à celui-ci. Certaines méthodes déclarées en \emph{private} n'apparaissent pas ici (caprises de eUML). Elles se trouvent néanmoins dans la javadoc.
 
 Le diagramme de séquence de reviewOpinion (Fig. \ref{fig:diagSeq1}) peut sembler trop simple. Nous avons choisi de ne représenter que le cas de fonctionnement normal (i.e les données passées en paramêtres sont valides). 
 
 \begin{figure}[h]
 \centering
-\includegraphics[angle = 90, scale=0.85]{Classe1.png}
+\includegraphics[angle = 90, scale=0.8]{Classe1.jpeg}
 \caption{Diagramme général de classes}
 \label{fig:diagClasses1}
 \end{figure}
@@ -208,7 +208,7 @@ Nombre de tests prévus & Tests passés & Tests OK & Tests Non OK & Tests NS & A
 \hline 
 Numéro & Identification du test & Résultats & Gravité \\ 
 \hline 
-1 & Test en environnement «prestataire» : avec instructions du fichier «alire». & OK, pas d'erreur, mais il n'est pas possible de tester le lot2 depuis l'IHM & Mineure \\ 
+1 & Test en environnement <<prestataire>> : avec instructions du fichier <<alire>>. & OK, pas d'erreur, mais il n'est pas possible de tester le lot2 depuis l'IHM & Mineure \\ 
 \hline 
 2 & TestsInitialisation & ok & RAS \\ 
 \hline 
@@ -496,8 +496,8 @@ Comme expliqué précedemment, la relecture croisée a été très bénéfique �
 \begin{itemize}
 	\item	Suppression de la méthode getPassword() remplacée par une méthode interne au membre pour respecter l'encapsulation et protéger la donnée.
 	\item	Dans reviewOpinion(), ajout d'une vérification pour confirmer que le membre a bien commenté l'item.
-	\item	Rempacement des tests pour lever les exceptions par des fonctions qui permettent de mettre à jour très facilement le code. 
-	\item	mise à jour de certains commentaires dans le code pour le rendre plus lisible.
+	\item	Remplacement des tests pour lever les exceptions par des fonctions qui permettent de mettre à jour très facilement le code. 
+	\item	Mise à jour de certains commentaires dans le code pour le rendre plus lisible.
 \end{itemize}
 
 La recette n'ayant remonté aucun défaut, il n'y a pas eu de modification ultérieure au rapport de recette.
@@ -518,7 +518,7 @@ reviewItemFilm & 100\% & RAS \\
 \hline 
 reviewItemBook & 100\% & RAS \\ 
 \hline 
-ReviewOpinion & 80\% & système de notation à améliorer(un utilisateur peut noter un même membre sur plusieurs commentaires)  \\ 
+reviewOpinion & 80\% & système de notation à améliorer(un utilisateur peut noter un même membre sur plusieurs commentaires)  \\ 
 \hline 
 \end{tabular}\\
 \end{center}
@@ -529,7 +529,7 @@ ReviewOpinion & 80\% & système de notation à améliorer(un utilisateur peut no
 Passons maintenant au bilan non fonctionnel du projet. Pour évaluer le rendement de notre programme,
 nous avons codé une classe \emph{TestEfficient} qui permet de mesurer le temps d'exécution des méthodes clés du projet (i.e celles utilisées directement par l'IHM). Ces méthodes sont appelées au sein d'un \emph{SocialNetwork} contenant 500 membres et 5000 items. Ci-dessous un exemple de code écrit :
 
-\begin{figure}
+\begin{figure}[h]
 \begin{lstlisting}[caption = Code de rendement d'une fonction]
 ...
 double duree;
@@ -551,6 +551,12 @@ duree = System.nanoTime() - start;
 System.out.println("Duree pour ajouter un nouveau membre : " + duree/1000000000 + " secondes\n");
 ...
 \end{lstlisting} 
+\begin{center}
+{\small Utilisation de System.nanoTime() pour mesurer la durée d'exécution de la méthode \textbf{addMember}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h]
 Les résultats obtenus suivants sont tout-à-fait concluant et respectent le cahier des charges.
 \begin{lstlisting}[caption = Resultats obtenus]
 Duree pour ajouter un nouveau membre : 8.0896E-5 secondes
@@ -566,35 +572,239 @@ Duree pour ajouter un opinion(karma) a un membre : 0.001236992 secondes
 \chapter*{Bilan général}
 \label{chapter:Bilan général} %Ajout dans la table des matières
 \addcontentsline{toc}{chapter}{Bilan général}
-Pour dresser un bilan général du travail réalisé, nous pouvons tout d'abord dire que nous avons réussi à s'organiser au sein du binôme pour se répartir au mieu les tâches. De plus, l'utilisation de solution de <<versioning>> à grandement facilité le partage et la mise en commun du code.
+Pour dresser un bilan général du travail réalisé, nous pouvons tout d'abord dire que nous avons réussi à s'organiser au sein du binôme pour se répartir au mieu les tâches. De plus, l'utilisation de solution de <<versioning>> (\textbf{GitHub}) à grandement facilité le partage, la mise en commun du code et l'efficacité au sein du binôme.
 \begin{quotation}
-\textit{• Quels sont les points faibles et les points forts de votre livrable ?}
+\textit{- Quels sont les points faibles et les points forts de votre livrable ?}
 \end{quotation}
 
 
-Le livrable que nous proposons est, d'une part, simple à comprendre grâce à la javadoc et, d'autre part, fidèle au cahier des charges grâce notamment à la batterie de tests effectués sur celui-ci. En plus des tests <<classiques>> sur les méthodes et les classes qui vont être utilisées, nous avons effectués des tests de rendement sur l'utilisation de celle-ci. 
-
-Le livrable que nous proposons est, d'une part, simple à comprendre grâce à la javadoc et, d'autre part, fidèle au cahier des charges grâce notamment à la batterie de tests effectués sur celui-ci. En plus des tests <<classiques>> sur les méthodes et les classes qui vont être utilisées, nous avons effectués des tests de rendement sur l'utilisation de celles-ci.
-
+Le livrable que nous proposons est, d'une part, simple à comprendre grâce à une javadoc garnie et, d'autre part, fidèle au cahier des charges grâce notamment à la batterie de tests effectués sur celui-ci. En plus des tests <<classiques>> sur les méthodes et les classes qui vont être utilisées, nous avons effectués des tests de rendement sur l'utilisation de celle-ci. 
 
 \begin{quotation}
-\textit{• Si c'était à refaire, que changerions-nous, le cas échéant, dans notre démarche de conception-réalisation ?}
+\textit{- Si c'était à refaire, que changerions-nous, le cas échéant, dans notre démarche de conception-réalisation ?}
 \end{quotation}
 
 Pour reprendre la remarque relevée lors du rapport d'audit, nous pouvons dire qu'une des erreurs que nous avons faite a été de commencer le codage des méthodes trop rapidement. En soit, le premier code proposé n'était pas mauvais, mais il n'était pas correctement structuré. En effet, un temps de réflexion au préalable, sur les fonctions et les conditions qui allaient être appelées fréquement, nous aurait permis de gagner du temps en fin de projet. 
 
 \begin{quotation}
-\textit{• Quels sont les avantages et inconvénients trouvés dans la démarche de conception en W ?}
+\textit{- Quels sont les avantages et inconvénients trouvés dans la démarche de conception en W ?}
 \end{quotation}
 
 
 La démarche de conception en $W$ nous a permis d'améliorer notre programme comparé à la version initiale. Contrairement à un cycle en $V$, le cycle en $W$ nous a permis d'avoir une vision extérieure sur le travail réalisé. Ces remarques ont été crutiales pour rendre notre code plus facile à modifier et à mettre à jour. Cependant un cycle en spirale aurait permis grâce à un plus grand nombre d'itérations de créer un logiciel plus complexe et robuste. Le principale obstacle qui nous a empêché de travailler de cette manière a été l'investissement en temps nécessaire à l'application d'une telle méthode. 
 
-La conception en $W$ possède quelques avantages, comme par exemple le fait, qu'en suivant ce cycle, nous sommes obligés de passer du temps sur l'analyse et sur la conception. Le temps passé lors de ces deux phases nous a permit de s'assurer que la phase de réalisation n'allait pas être vaine, et que ce que nous allions faire correspondrait bien à la demande. De plus, les phases de tests (unitaires et d'intégration) permettent de valider au fur et à mesure les différentes parties du projet.\\
+La conception en $W$ possède quelques avantages, comme par exemple le fait, qu'en suivant ce cycle, nous sommes obligés de passer du temps sur l'analyse et sur la conception. Le temps passé lors de ces deux phases, nous a permit de nous assurer que la phase de réalisation n'allait pas être vaine et que ce que nous allions faire correspondait bien à la demande. De plus, les phases de tests (unitaires et d'intégration) permettent de valider au fur et à mesure les différentes parties du projet.\\
 
 \appendix
-\chapter{Fiches de tests}
+\chapter{Fiche de test N3 - addItemFilm}
+\textbf{Objectif du test :} éprouver la méthode addItemFilm sur des cas d'anomalie.
+Vérification de la levée de BadEntry lors de l’utilisation de addItemFilm avec des paramètres d'entrées incorrects.
+Pour rappel, les 7 cas de levée de l'exception BadEntry par cette méthode sont :
+\begin{itemize}
+\item Si le pseudo n'est pas instancié ou a moins de 1 caractère autre que des espaces
+\item Si le password n'est pas instancié ou a moins de 4 caractères autres des leading or trailing blancks
+\item Si le titre n'est pas instancié, ou a moins de 1 caractère autre que des espaces
+\item Si le genre n'est pas instancié
+\item Si le réalisateur n'est pas instancié
+\item Si le scénariste n'est pas instancié
+\item Si la durée n'est pas positive
+\end{itemize}
 
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item	Instanciation d'un Social Network
+	\item	3.1 : Utilisation de addItemFilm avec en paramètre un pseudo non instancié
+	\item	3.2 : Utilisation de addItemFilm avec en paramètre un pseudo avec moins de 1 caractère
+	\item	3.3 : Utilisation de addItemFilm avec en paramètre un password pas instancié
+	\item	3.4 : Utilisation de addItemFilm avec en paramètre un password de moins de 4 caractères
+	\item	3.5 : Utilisation de addItemFilm avec en paramètre un titre non instancié
+	\item	3.6 : Utilisation de addItemFilm avec en paramètre un titre de moins de 1 caractère
+	\item	3.7 : Utilisation de addItemFilm avec en paramètre un genre non instancié
+	\item	3.8 : Utilisation de addItemFilm avec en paramètre un réalisateur non instancié
+	\item	3.9 : Utilisation de addItemFilm avec en paramètre un scénariste non instancié
+	\item	3.10 : Utilisation de addItemFilm avec en paramètre une durée qui n'est pas positive
 
+\end{itemize}
 
+\textbf{Résultats attendus :}
+Dans les 10 cas d'utilisation, l'exception BadEntry doit être levée.
+Après la levée d'exception, le nombre d'itemFilm doit rester le même., C'est à dire qu'aucun film ne doit être ajouté.
+
+\textbf{Résultats observés : }
+Tests 0/10. Pas d'erreur
+
+\textbf{Conclusion }: RAS
+
+\chapter{Fiche de test N4 - addItemFilm}  
+
+\textbf{Objectif du test : }éprouver la méthode addItemFilm sur des cas de fonctionnement standard.
+\begin{itemize}
+	\item	But principal : vérification de l'ajout du nouveau film après l'utilisation de addItemFilm avec des paramètres d'entrées corrects.
+	\item	Buts secondaires : 
+	\begin{itemize}
+		\item Vérification de la levée d'exception NotMember par la méthode addItemFilm si le pseudo n'est pas celui d'un membre ou si le pseudo et le password ne correspondent pas.
+		\item Vérification de la levée d'exception ItemFilmAlreadyExists par la méthode addItemFilm si un itemFilm existe déjà avec le même titre (indifférent à la casse et aux leadings et trailings blanks)
+	\end{itemize}
+
+\end{itemize}
+
+\textbf{Description(scénario) :}
+\begin{itemize}
+	\item	Instanciation d'un Social Network
+	\item	Instanciation de plusieurs Member de test, que si les tests liés à addMember (cf. fiches de test N°1 et N°2) ont été validés
+	\item	4.1 : Utilisation de addItemFilm avec des paramètres d'entrées corrects
+	\item	4.2 : Utilisation de addItemFilm avec en paramètre un pseudo qui n'est pas celui d'un membre
+	\item	4.3 : Utilisation de addItemFilm avec en paramètre un pseudo et un password qui ne correspondent pas
+	\item	4.4 : Utilisation de addItemFilm avec en paramètre un titre de film déjà existant
+
+\end{itemize}
+
+\textbf{Résultats attendus :}
+	L'ajout d'un ItemFilm avec des paramètres corrects ne doit pas lever d'exception. Le nombre de ItemFilm doit augmenter en conséquence. Pour les deux tests suivants, l'exception NotMember doit être levée. Enfin, pour le dernier test, l'exception ItemFilmAlreadyExists doit être levée. Le nombre de ItemFilm ne doit pas augementer dans ce cas.
+
+\textbf{Résultats observés :}
+Tests 0/4. Pas d'erreur
+
+\textbf{Conclusion :} RAS
+
+\chapter{Fiche de test N5 - reviewItemFilm}
+
+\textbf{Objectif du test :} éprouver la méthode reviewItemFilm sur des cas d'anomalie.
+Vérification de la levée de BadEntry lors de l’utilisation de reviewItemFilm avec des paramètres d'entrées incorrects.
+Pour rappel, les 5 cas de levée de l'exception BadEntry par cette méthode sont :
+\begin{itemize}
+	\item	Si le pseudo n'est pas instancié ou a moins de 1 caractère autre que des espaces
+	\item	Si le password n'est pas instancié ou a moins de 4 caractères autres des leading or trailing blancks
+	\item	Si le titre n'est pas instancié, ou a moins de 1 caractère autre que des espaces
+	\item	Si la note n’est pas comprise entre 0 et 5
+	\item	Si le commentaire n’est pas instancié
+\end{itemize}
+
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item	Instanciation d'un Social Network
+	\item	5.1 : Utilisation de reviewItemFilm avec en paramètre un pseudo non instancié
+	\item	5.2 : Utilisation de reviewItemFilm avec en paramètre un pseudo avec moins de 1 caractère
+	\item	5.3 : Utilisation de reviewItemFilm  avec en paramètre un password pas instancié
+	\item	5.4 : Utilisation de reviewItemFilm avec en paramètre un password de moins de 4 caractères
+	\item   5.5 : Utilisation de reviewItemFilm avec en paramètre un titre non instancié
+	\item	5.6 : Utilisation de reviewItemFilm avec en paramètre un titre de moins de 1 caractère
+	\item	5.7 : Utilisation de reviewItemFilm avec en paramètre une note négative
+	\item	5.8 : Utilisation de reviewItemFilm avec en paramètre une note supérieure à 5
+	\item	5.9 : Utilisation de reviewItemFilm avec un commentaire non instancié
+\end{itemize}
+
+\textbf{Résultats attendus :}
+Dans les 8 cas d'utilisation, l'exception BadEntry doit être levée.
+Après la levée d'exception, le commentaire ne doit pas être  pris en compte. La note du film ne doit pas être modifiée.
+
+\textbf{Résultats observés :}
+Tests 0/9. Pas d'erreur
+
+\textbf{Conclusion :} RAS
+
+\chapter{Fiche de test N6 - reviewItemFilm}    
+
+\textbf{Objectif du test : }éprouver la méthode reviewItemFilm sur des cas de fonctionnement standard.
+\begin{itemize}
+	\item	But principal : vérification de l'ajout du nouveau commentaire de film après l'utilisation de reviewItemFilm avec des paramètres d'entrées corrects.
+	\item	Buts secondaires :
+	\begin{itemize}
+		\item Vérification de la levée d'exception NotMember par la méthode reviewItemFilm si le pseudo n'est pas celui d'un membre ou si le pseudo et le password ne correspondent pas.
+		\item Vérification de la levée d'exception NotItem par la méthode reviewItemFilm si le titre n’est pas le titre d’un film.
+
+	\end{itemize}
+
+\end{itemize}
+
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item	Instanciation d'un Social Network
+	\item	Instanciation de plusieurs Member de test, que si les tests liés à addMember (cf. fiches de test N°1 et N°2) ont été validés
+	\item	6.1 : Utilisation de reviewItemFilm avec en paramètre un pseudo qui n'est pas celui d'un membre 
+	\item	6.2 : Utilisation de reviewItemFilm avec en paramètre un pseudo et un password qui ne correspondent pas
+	\item	6.3 : Utilisation de reviewItemFilm avec des paramètres corrects
+	\item	6.4 : Utilisation de reviewItemFilm avec un titre de film qui n’existe pas
+\end{itemize}
+
+\textbf{Résultats attendus :}
+	L'ajout d'une review avec des paramètres corrects ne doit pas lever d'exception. Le commentaire doit être pris en compte. Pour les tests 6.1 et 6.2, l'exception NotMember doit être levée. Enfin, pour le dernier test, l'exception NoItem doit être levée. Le commentaire ne doit pas être pris en compte dans ces cas.
+
+\textbf{Résultats observés :}
+Tests 0/4. Pas d'erreur
+
+\textbf{Conclusion : }RAS
+
+\chapter{Fiche de test N7 - reviewOpinion}
+ 
+\textbf{Objectif du test : }éprouver la méthode reviewOpinion sur des cas d'anomalie.
+Vérification de la levée de BadEntry lors de l’utilisation de reviewOpinion avec des paramètres d'entrées incorrects.
+Pour rappel, les 5 cas de levée de l'exception BadEntry par cette méthode sont :
+\begin{itemize}
+	\item	Si le pseudo n'est pas instancié ou a moins de 1 caractère autre que des espaces
+	\item	Si le password n'est pas instancié ou a moins de 4 caractères autres des leading or trailing blancks
+	\item	Si le titre n'est pas instancié, ou a moins de 1 caractère autre que des espaces
+	\item	Si la note n’est pas comprise entre 0 et 5
+	\item	Si le pseudo cible n’est pas instancié, ou a moins de 1 caractère autre que des espaces
+
+\end{itemize}
+
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item	Instanciation d'un Social Network
+	\item	7.1 : Utilisation de reviewOpinion avec en paramètre un pseudo non instancié
+	\item	7.2 : Utilisation de reviewOpinion avec en paramètre un pseudo avec moins de 1 caractère
+	\item	7.3 : Utilisation de reviewOpinion avec en paramètre un password pas instancié
+	\item	7.4 : Utilisation de reviewOpinion avec en paramètre un password de moins de 4 caractères
+	\item	7.5 : Utilisation de reviewOpinion avec en paramètre un titre non instancié
+	\item	7.6 : Utilisation de reviewOpinion avec en paramètre un titre de moins de 1 caractère
+	\item	7.7 : Utilisation de reviewOpinion avec en paramètre un karma négatif
+	\item	7.8 : Utilisation de reviewOpinion avec en paramètre un karma supérieur à 5
+	\item	7.9 : Utilisation de reviewOpinion avec en paramètre un pseudo cible non instancié
+	\item	7.10 : Utilisation de reviewOpinion avec en paramètre un pseudo cible avec moins de 1 caractère
+\end{itemize}
+
+\textbf{Résultats attendus :}
+Dans les 1er cas d'utilisation, l'exception BadEntry doit être levée.
+Après la levée d'exception, l'opinion ne doit pas être prise en compte.Le karma du membre ne doit pas être modifié.
+
+\textbf{Résultats observés :}
+Tests 0/10. Pas d'erreur
+\textbf{Conclusion : }RAS
+
+\chapter{Fiche de test N8 - reviewOpinion}    
+
+\textbf{Objectif du test :} éprouver la méthode reviewOpinion sur des cas de fonctionnement standard.
+\begin{itemize}
+	\item	But principal : vérification de l'ajout d'une opinion sur un membre après l'utilisation de reviewOpinion avec des paramètres d'entrées corrects.
+	\item	Buts secondaires :
+	\begin{itemize}
+		\item	Vérification de la levée d'exception NotMember par la méthode reviewOpinion si le pseudo n'est pas celui d'un membre ou si le pseudo et le password ne correspondent pas.
+       \item    Vérification de la levée d'exception NotItem par la méthode reviewOpinion si le titre n’est pas dans le SocialNetwork.
+	   \item 	Vérification de la levée d'exception SameMember par la méthode reviewOpinion si les 2 pseudos en paramètre sont les mêmes.
+
+	\end{itemize}
+
+\end{itemize}
+
+\textbf{Description (scénario) :}
+\begin{itemize}
+	\item	Instanciation d'un Social Network
+	\item	Instanciation de plusieurs Member de test, que si les tests liés à addMember (cf. fiches de test N°1 et N°2) ont été validés
+	\item	8.1 : Utilisation de reviewOpinion avec en paramètre un pseudo qui n'est pas celui d'un membre 
+	\item	8.2 : Utilisation de reviewOpinion avec en paramètre un pseudo et un password qui ne correspondent pas
+	\item	8.3 : Utilisation de reviewOpinion avec des paramètres corrects
+	\item	8.4 : Utilisation de reviewOpinion avec deux pseudos identiques
+	\item	8.5 : Utilisation de reviewOpinion avec un titre de film qui n’existe pas
+	\item	8.6 : Utilisation de reviewOpinion avec un titre de livre mais bookOrNot faux 
+
+\end{itemize}
+
+\textbf{Résultats attendus :}
+	L'ajout d'une review avec des paramètres corrects ne doit pas lever d'exception. L'opinion doit être prise en compte. Pour les tests 8.1 et 8.2, l'exception NotMember doit être levée. Pour le test 8.4, l'exception SameMember doit être levée. Enfin, pour les derniers tests, l'exception NoItem doit être levée. L'opinion ne doit pas être prise en compte dans ces cas.
+
+\textbf{Résultats observés :}
+Tests 0/6. Pas d'erreur
+
+\textbf{Conclusion :}RAS
 \end{document}

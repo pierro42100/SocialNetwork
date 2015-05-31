@@ -1,8 +1,14 @@
+\select@language {french}
 \contentsline {chapter}{Introduction}{3}
-\contentsline {chapter}{Fiches t\IeC {\^a}ches/temps}{4}
-\contentsline {chapter}{Diagramme de classes et diagrammes de s\IeC {\'e}quences}{6}
-\contentsline {chapter}{Rapport d'audit}{10}
-\contentsline {chapter}{Rapport de recette}{11}
-\contentsline {chapter}{Bilan}{18}
-\contentsline {chapter}{Bilan g\IeC {\'e}n\IeC {\'e}ral}{20}
-\contentsline {chapter}{\numberline {A}Fiches de tests}{21}
+\contentsline {chapter}{Fiches tâches/temps}{4}
+\contentsline {chapter}{Diagramme de classes et diagrammes de séquences}{5}
+\contentsline {chapter}{Rapport d'audit}{9}
+\contentsline {chapter}{Rapport de recette}{10}
+\contentsline {chapter}{Bilan}{17}
+\contentsline {chapter}{Bilan général}{19}
+\contentsline {chapter}{\numberline {A}Fiche de test N3 - addItemFilm}{20}
+\contentsline {chapter}{\numberline {B}Fiche de test N4 - addItemFilm}{21}
+\contentsline {chapter}{\numberline {C}Fiche de test N5 - reviewItemFilm}{22}
+\contentsline {chapter}{\numberline {D}Fiche de test N6 - reviewItemFilm}{23}
+\contentsline {chapter}{\numberline {E}Fiche de test N7 - reviewOpinion}{24}
+\contentsline {chapter}{\numberline {F}Fiche de test N8 - reviewOpinion}{25}
